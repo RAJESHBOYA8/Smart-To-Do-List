@@ -13,6 +13,11 @@ from base.emails import account_activation_email
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
 
 def login_view(request):
     if request.method == 'POST':
