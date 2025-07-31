@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f7f7f7;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #eee;
+    }
+
+    .priority-high {
+      color: red;
+      font-weight: bold;
+    }
+
+    .priority-medium {
+      color: orange;
+      font-weight: bold;
+    }
+
+    .priority-low {
+      color: green;
+      font-weight: bold;
+    }
+
+    .actions button {
+      margin-right: 5px;
+    }
+
+    input, select {
+      padding: 8px;
+      margin: 5px;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    #task-form {
+      background-color: white;
+      padding: 15px;
+      border: 1px solid #ccc;
+      max-width: 600px;
+      margin: 20px auto;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    #tasks {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>To-Do List</h1>
+
+  <form id="task-form" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <input type="text" id="task-name" name="task" placeholder="Enter task" required>
+      <select id="priority" name="priority" required>
+        <option value="">Select priority</option>
+        <option value="High">1 - High</option>
+        <option value="Medium">2 - Medium</option>
+        <option value="Low">3 - Low</option>
+      </select>
+      <button type="submit">Add Task</button>
+    </div>
+  </form>
+
+  <table id="tasks">
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const form = document.getElementById('task-form');
+    const taskInput = document.getElementById('task-name');
+    const priorityInput = document.getElementById('priority');
+    const tableBody = document.querySelector('#tasks tbody');
+
+    let editRow = null;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = taskInput.value;
+      const priority = priorityInput.value;
+
+      if (editRow) {
+        const cells = editRow.getElementsByTagName('td');
+        cells[0].textContent = name;
+        cells[1].textContent = formatPriority(priority);
+        cells[1].className = 'priority-' + priority.toLowerCase();
+        editRow = null;
+      } else {
+        addTask(name, priority);
+      }
+
+      form.reset();
+    });
+
+    function addTask(name, priority) {
+      const row = document.createElement('tr');
+
+      const taskCell = document.createElement('td');
+      taskCell.textContent = name;
+
+      const priorityCell = document.createElement('td');
+      priorityCell.textContent = formatPriority(priority);
+      priorityCell.classList.add('priority-' + priority.toLowerCase());
+
+      const statusCell = document.createElement('td');
+      statusCell.textContent = "Pending";
+
+      const actionsCell = document.createElement('td');
+      actionsCell.classList.add("actions");
+
+      const editBtn = document.createElement('button');
+      editBtn.textContent = "Edit";
+      editBtn.onclick = () => {
+        taskInput.value = taskCell.textContent;
+        priorityInput.value = priority;
+        editRow = row;
+      };
+
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = "Delete";
+      deleteBtn.onclick = () => row.remove();
+
+      const completeBtn = document.createElement('button');
+      completeBtn.textContent = "Mark Done";
+      completeBtn.onclick = () => {
+        statusCell.textContent = "Completed";
+        statusCell.style.color = "green";
+      };
+
+      actionsCell.append(editBtn, deleteBtn, completeBtn);
+      row.append(taskCell, priorityCell, statusCell, actionsCell);
+      tableBody.appendChild(row);
+    }
+
+    function formatPriority(priority) {
+      if (priority === 'High') return '1 - High';
+      if (priority === 'Medium') return '2 - Medium';
+      if (priority === 'Low') return '3 - Low';
+      return priority;
+    }
+  </script>
+
+</body>
+</html>

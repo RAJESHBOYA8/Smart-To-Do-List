@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Form</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            text-align: center;
+            font-size: large;
+            padding: 100px;
+            margin: 0;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+        }
+
+        .outerbox {
+            background-color: white;
+            display: inline-block;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        .inp {
+            width: 200px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #1e3c72;
+            color: white;
+            cursor: pointer;
+        }
+
+        a {
+            color: #1e3c72;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="outerbox">
+        <header><h4>Sign In</h4></header>
+        <main>
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username" class="inp" required><br><br>
+                <input type="password" name="password" placeholder="Password" class="inp" required><br><br>
+                <button type="submit">Login</button>
+                {% if error %}
+                    <p class="error">{{ error }}</p>
+                {% endif %}
+            </form>
+        </main>
+        <footer><p>Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p></footer>
+    </div>
+</body>
+</html>

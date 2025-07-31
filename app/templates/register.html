@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            text-align: center;
+            font-size: large;
+            padding: 100px;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+        }
+
+        .outerbox {
+            background-color: white;
+            display: inline-block;
+            padding: 30px;
+            border-radius: 20px;
+        }
+        .inp {
+            width: 200px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        .inp {
+            width: 200px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #1e3c72;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="outerbox">
+        <header><h3>Sign Up</h3></header>
+        <main>
+           <form method="POST">
+    {% csrf_token %}
+    <input type="text" name="first_name" placeholder="First Name" class="inp" required><br><br>
+    <input type="text" name="last_name" placeholder="Last Name" class="inp" required><br><br>
+    <input type="text" name="username" placeholder="Username" class="inp" required><br><br>
+    <input type="email" name="email" placeholder="Email" class="inp" required><br><br>
+    <input type="password" name="password" placeholder="Password" class="inp" required><br><br>
+    <button type="submit">Register</button>
+
+    {% if messages %}
+      {% for message in messages %}
+        <p style="color:red">{{ message }}</p>
+      {% endfor %}
+    {% endif %}
+</form>
+
+        </main>
+        <footer><p>Already have an account? <a href="{% url 'login' %}">Sign In</a></p></footer>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $(document).on("click", ".dropdown-menu", function (e) {
+                e.stopPropagation();
+            });
+            if ($('[data-toggle="tooltip"]').length > 0) {
+                $('[data-toggle="tooltip"]').tooltip();
+            }
+        });
+    </script>
+</body>
+</html>
