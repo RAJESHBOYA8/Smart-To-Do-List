@@ -52,6 +52,14 @@
 </head>
 <body>
     <div class="outerbox">
+        {% if messages %}
+  {% for message in messages %}
+    <div style="color: green; font-weight: bold; margin-bottom: 10px;">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
         <header><h4>Sign In</h4></header>
         <main>
             <form method="post">
@@ -62,6 +70,7 @@
                 {% if error %}
                     <p class="error">{{ error }}</p>
                 {% endif %}
+
             </form>
         </main>
         <footer><p>Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p></footer>

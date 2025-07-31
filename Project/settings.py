@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'base',
 ]
 
 MIDDLEWARE = [
@@ -129,4 +130,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'todo_list'
 LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = 'login'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'boyarajesh888@gmail.com'
+EMAIL_HOST_PASSWORD = 'euov nolo chqd pazx'
+DEFAULT_FROM_EMAIL = 'boyarajesh888@gmail.com'
+
+
+SITE_URL = "http://127.0.0.1:8000/"
 
