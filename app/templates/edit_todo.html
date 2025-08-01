@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Task</title>
+</head>
+<body>
+    <h2>Edit Task</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Task:</label>
+        <input type="text" name="task" value="{{ todo.task }}" required><br><br>
+
+        <label>Priority:</label>
+        <select name="priority" required>
+            <option value="High" {% if todo.priority == "High" %}selected{% endif %}>1 - High</option>
+            <option value="Medium" {% if todo.priority == "Medium" %}selected{% endif %}>2 - Medium</option>
+            <option value="Low" {% if todo.priority == "Low" %}selected{% endif %}>3 - Low</option>
+        </select><br><br>
+
+        <button type="submit">Save</button>
+        <a href="{% url 'todo' %}">Cancel</a>
+    </form>
+</body>
+</html>
