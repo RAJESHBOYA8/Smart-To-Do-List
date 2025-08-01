@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+import uuid
+
 
 class Todo(models.Model):
     PRIORITY_CHOICES = [
