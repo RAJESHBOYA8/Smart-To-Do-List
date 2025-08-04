@@ -1,0 +1,617 @@
+INFO 2025-08-01 10:24:12,739 autoreload 45114 127050743289664 Watching for file changes with StatReloader
+INFO 2025-08-01 10:24:34,274 autoreload 45114 127050743289664 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/models.py changed, reloading.
+INFO 2025-08-01 10:24:34,635 autoreload 45183 124170296493888 Watching for file changes with StatReloader
+INFO 2025-08-01 10:24:53,005 autoreload 45212 140085229303616 Watching for file changes with StatReloader
+INFO 2025-08-01 10:25:46,359 autoreload 45212 140085229303616 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/models.py changed, reloading.
+INFO 2025-08-01 10:25:46,745 autoreload 45349 125236897462080 Watching for file changes with StatReloader
+INFO 2025-08-01 10:25:57,834 autoreload 45349 125236897462080 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/models.py changed, reloading.
+INFO 2025-08-01 10:25:58,389 autoreload 45374 136845523068736 Watching for file changes with StatReloader
+INFO 2025-08-01 10:26:11,001 autoreload 45401 134853432440640 Watching for file changes with StatReloader
+INFO 2025-08-01 10:26:55,118 autoreload 45401 134853432440640 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/models.py changed, reloading.
+INFO 2025-08-01 10:26:55,468 autoreload 45516 123414290286400 Watching for file changes with StatReloader
+INFO 2025-08-01 10:28:33,899 autoreload 45516 123414290286400 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/views.py changed, reloading.
+INFO 2025-08-01 10:28:34,333 autoreload 45722 134278231353152 Watching for file changes with StatReloader
+INFO 2025-08-01 10:28:56,005 basehttp 45722 134278189659904 "GET / HTTP/1.1" 200 8954
+WARNING 2025-08-01 10:28:57,159 log 45722 134278189659904 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-01 10:28:57,164 basehttp 45722 134278189659904 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4833
+INFO 2025-08-01 10:29:46,838 autoreload 45722 134278231353152 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/models.py changed, reloading.
+INFO 2025-08-01 10:29:47,534 autoreload 45907 128160217458496 Watching for file changes with StatReloader
+INFO 2025-08-01 10:31:02,357 autoreload 46075 140256931936064 Watching for file changes with StatReloader
+INFO 2025-08-01 10:31:05,111 basehttp 46075 140256890210048 "GET / HTTP/1.1" 200 8954
+WARNING 2025-08-01 10:31:06,142 log 46075 140256890210048 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-01 10:31:06,152 basehttp 46075 140256890210048 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4833
+INFO 2025-08-01 10:31:22,305 basehttp 46075 140256890210048 "GET / HTTP/1.1" 200 8954
+WARNING 2025-08-01 10:31:23,291 log 46075 140256890210048 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-01 10:31:23,307 basehttp 46075 140256890210048 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4833
+INFO 2025-08-01 10:31:34,123 basehttp 46075 140256890210048 "GET / HTTP/1.1" 200 8954
+WARNING 2025-08-01 10:31:34,843 log 46075 140256890210048 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-01 10:31:34,854 basehttp 46075 140256890210048 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4833
+INFO 2025-08-01 10:31:40,202 basehttp 46075 140256890210048 "GET /dashboard/ HTTP/1.1" 200 8954
+ERROR 2025-08-01 10:31:42,027 log 46075 140256890210048 Internal Server Error: /todo/
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python3/dist-packages/django/db/backends/sqlite3/base.py", line 383, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: app_todo.category
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/lib/python3/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3/dist-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/views.py", line 211, in todo_view
+    return render(request, "todoapp.html", context)
+  File "/usr/lib/python3/dist-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/lib/python3/dist-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/usr/lib/python3/dist-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/lib/python3/dist-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/usr/lib/python3/dist-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/usr/lib/python3/dist-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/lib/python3/dist-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/lib/python3/dist-packages/django/template/base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "/usr/lib/python3/dist-packages/django/template/base.py", line 698, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "/usr/lib/python3/dist-packages/django/template/defaultfilters.py", line 575, in length
+    return len(value)
+  File "/usr/lib/python3/dist-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/usr/lib/python3/dist-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/lib/python3/dist-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/lib/python3/dist-packages/django/db/models/sql/compiler.py", line 1140, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python3/dist-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/usr/lib/python3/dist-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/lib/python3/dist-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/lib/python3/dist-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python3/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/lib/python3/dist-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python3/dist-packages/django/db/backends/sqlite3/base.py", line 383, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: app_todo.category
+ERROR 2025-08-01 10:31:42,040 basehttp 46075 140256890210048 "GET /todo/ HTTP/1.1" 500 190991
+INFO 2025-08-01 10:32:14,822 autoreload 46244 137026496681792 Watching for file changes with StatReloader
+INFO 2025-08-01 10:32:16,276 basehttp 46244 137026455250688 "GET / HTTP/1.1" 200 8954
+WARNING 2025-08-01 10:32:16,748 log 46244 137026455250688 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-01 10:32:16,749 basehttp 46244 137026455250688 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4833
+ERROR 2025-08-01 10:32:20,444 log 46244 137026455250688 Internal Server Error: /todo/
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python3/dist-packages/django/db/backends/sqlite3/base.py", line 383, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: app_todo.category
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/lib/python3/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3/dist-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/views.py", line 211, in todo_view
+    return render(request, "todoapp.html", context)
+  File "/usr/lib/python3/dist-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/lib/python3/dist-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/usr/lib/python3/dist-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/lib/python3/dist-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/usr/lib/python3/dist-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/usr/lib/python3/dist-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/lib/python3/dist-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/lib/python3/dist-packages/django/template/base.py", line 987, in render
+    output = self.filter_expression.resolve(context)
+  File "/usr/lib/python3/dist-packages/django/template/base.py", line 698, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "/usr/lib/python3/dist-packages/django/template/defaultfilters.py", line 575, in length
+    return len(value)
+  File "/usr/lib/python3/dist-packages/django/db/models/query.py", line 256, in __len__
+    self._fetch_all()
+  File "/usr/lib/python3/dist-packages/django/db/models/query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/lib/python3/dist-packages/django/db/models/query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/lib/python3/dist-packages/django/db/models/sql/compiler.py", line 1140, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python3/dist-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/usr/lib/python3/dist-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/lib/python3/dist-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/lib/python3/dist-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python3/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/lib/python3/dist-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python3/dist-packages/django/db/backends/sqlite3/base.py", line 383, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: app_todo.category
+ERROR 2025-08-01 10:32:20,452 basehttp 46244 137026455250688 "GET /todo/ HTTP/1.1" 500 190979
+INFO 2025-08-01 10:33:15,354 autoreload 46244 137026496681792 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/models.py changed, reloading.
+INFO 2025-08-01 10:33:15,935 autoreload 46383 131824242050880 Watching for file changes with StatReloader
+INFO 2025-08-01 10:35:50,247 autoreload 46383 131824242050880 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/models.py changed, reloading.
+INFO 2025-08-01 10:35:50,934 autoreload 46748 137119578515264 Watching for file changes with StatReloader
+INFO 2025-08-01 10:36:05,559 autoreload 46748 137119578515264 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/models.py changed, reloading.
+INFO 2025-08-01 10:36:06,297 autoreload 46773 125577626781504 Watching for file changes with StatReloader
+INFO 2025-08-01 10:36:34,517 autoreload 46773 125577626781504 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/views.py changed, reloading.
+INFO 2025-08-01 10:36:35,576 autoreload 46844 123491447490368 Watching for file changes with StatReloader
+INFO 2025-08-01 10:37:43,674 autoreload 47010 139121874155328 Watching for file changes with StatReloader
+WARNING 2025-08-01 10:37:45,267 log 47010 139121832474368 Not Found: /
+WARNING 2025-08-01 10:37:45,270 basehttp 47010 139121832474368 "GET / HTTP/1.1" 404 3530
+WARNING 2025-08-01 10:37:45,620 log 47010 139121832474368 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-01 10:37:45,620 basehttp 47010 139121832474368 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3725
+INFO 2025-08-01 10:37:48,158 basehttp 47010 139121832474368 "GET /login/ HTTP/1.1" 200 1802
+WARNING 2025-08-01 10:37:48,672 log 47010 139121832474368 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-01 10:37:48,680 basehttp 47010 139121832474368 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3725
+INFO 2025-08-01 10:37:53,834 basehttp 47010 139121832474368 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-08-01 10:37:53,855 basehttp 47010 139121832474368 "GET /todo/ HTTP/1.1" 200 4673
+INFO 2025-08-01 10:38:11,649 basehttp 47010 139121832474368 "GET /register/ HTTP/1.1" 200 2368
+INFO 2025-08-04 04:17:13,895 autoreload 1989 125555389622080 Watching for file changes with StatReloader
+WARNING 2025-08-04 04:17:20,020 log 1989 125555338262272 Not Found: /
+WARNING 2025-08-04 04:17:20,022 basehttp 1989 125555338262272 "GET / HTTP/1.1" 404 3668
+WARNING 2025-08-04 04:17:20,511 log 1989 125555338262272 Not Found: /favicon.ico
+WARNING 2025-08-04 04:17:20,512 basehttp 1989 125555338262272 "GET /favicon.ico HTTP/1.1" 404 3719
+WARNING 2025-08-04 04:17:23,635 log 1989 125555338262272 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 04:17:23,636 basehttp 1989 125555338262272 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3863
+WARNING 2025-08-04 04:17:34,708 base 1989 125555338262272 Session data corrupted
+INFO 2025-08-04 04:17:34,715 basehttp 1989 125555338262272 "GET /login/ HTTP/1.1" 200 1802
+WARNING 2025-08-04 04:17:35,212 log 1989 125555338262272 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 04:17:35,213 basehttp 1989 125555338262272 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3863
+WARNING 2025-08-04 04:17:41,416 base 1989 125555338262272 Session data corrupted
+INFO 2025-08-04 04:17:41,474 basehttp 1989 125555338262272 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-08-04 04:17:41,503 basehttp 1989 125555338262272 "GET /todo/ HTTP/1.1" 200 4673
+WARNING 2025-08-04 04:17:41,823 log 1989 125555338262272 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 04:17:41,824 basehttp 1989 125555338262272 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3863
+INFO 2025-08-04 04:19:04,780 basehttp 1989 125555338262272 "POST /todo/ HTTP/1.1" 302 0
+INFO 2025-08-04 04:19:04,799 basehttp 1989 125555338262272 "GET /todo/ HTTP/1.1" 200 5523
+WARNING 2025-08-04 04:19:05,053 log 1989 125555338262272 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 04:19:05,054 basehttp 1989 125555338262272 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3863
+INFO 2025-08-04 04:19:08,993 basehttp 1989 125555338262272 "POST /done/29/ HTTP/1.1" 302 0
+INFO 2025-08-04 04:19:09,014 basehttp 1989 125555338262272 "GET /todo/ HTTP/1.1" 200 5204
+INFO 2025-08-04 04:19:14,116 basehttp 1989 125555338262272 "POST /delete/29/ HTTP/1.1" 302 0
+INFO 2025-08-04 04:19:14,135 basehttp 1989 125555338262272 "GET /todo/ HTTP/1.1" 200 4666
+INFO 2025-08-04 04:19:26,685 basehttp 1989 125555338262272 "POST /todo/ HTTP/1.1" 302 0
+INFO 2025-08-04 04:19:26,707 basehttp 1989 125555338262272 "GET /todo/ HTTP/1.1" 200 5519
+INFO 2025-08-04 04:20:30,493 autoreload 2442 138687887157056 Watching for file changes with StatReloader
+WARNING 2025-08-04 04:20:34,622 log 2442 138687836030720 Not Found: /
+WARNING 2025-08-04 04:20:34,623 basehttp 2442 138687836030720 "GET / HTTP/1.1" 404 3668
+WARNING 2025-08-04 04:20:35,305 log 2442 138687836030720 Not Found: /favicon.ico
+WARNING 2025-08-04 04:20:35,306 basehttp 2442 138687836030720 "GET /favicon.ico HTTP/1.1" 404 3719
+INFO 2025-08-04 04:20:37,926 basehttp 2442 138687836030720 "GET /login/ HTTP/1.1" 200 1802
+INFO 2025-08-04 04:20:42,627 basehttp 2442 138687836030720 "GET /register/ HTTP/1.1" 200 2368
+INFO 2025-08-04 04:21:06,775 basehttp 2442 138687836030720 "POST /register/ HTTP/1.1" 200 2461
+INFO 2025-08-04 04:21:17,519 basehttp 2442 138687836030720 "GET /activate/MjI/ctztf3-3b418b1810a3a4e8df8f32d0b5e2a87c/ HTTP/1.1" 302 0
+INFO 2025-08-04 04:21:17,569 basehttp 2442 138687836030720 "GET /login/ HTTP/1.1" 200 1951
+INFO 2025-08-04 04:21:26,429 basehttp 2442 138687836030720 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-08-04 04:21:26,469 basehttp 2442 138687836030720 "GET /todo/ HTTP/1.1" 200 3053
+INFO 2025-08-04 04:21:33,931 basehttp 2442 138687836030720 "POST /todo/ HTTP/1.1" 302 0
+INFO 2025-08-04 04:21:33,955 basehttp 2442 138687836030720 "GET /todo/ HTTP/1.1" 200 3824
+INFO 2025-08-04 04:21:40,590 basehttp 2442 138687836030720 "POST /logout/ HTTP/1.1" 302 0
+INFO 2025-08-04 04:21:40,596 basehttp 2442 138687836030720 "GET /login/ HTTP/1.1" 200 1802
+INFO 2025-08-04 04:21:46,586 basehttp 2442 138687836030720 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-08-04 04:21:46,606 basehttp 2442 138687836030720 "GET /todo/ HTTP/1.1" 200 3824
+INFO 2025-08-04 04:21:51,764 basehttp 2442 138687836030720 "POST /done/33/ HTTP/1.1" 302 0
+INFO 2025-08-04 04:21:51,785 basehttp 2442 138687836030720 "GET /todo/ HTTP/1.1" 200 3505
+WARNING 2025-08-04 04:28:00,667 log 2442 138687836030720 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 04:28:00,668 basehttp 2442 138687836030720 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3863
+INFO 2025-08-04 04:39:14,263 autoreload 2442 138687887157056 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py changed, reloading.
+INFO 2025-08-04 04:39:18,391 autoreload 4982 127174158100288 Watching for file changes with StatReloader
+INFO 2025-08-04 04:41:27,474 autoreload 5352 131932563535680 Watching for file changes with StatReloader
+INFO 2025-08-04 04:42:12,191 autoreload 5445 132679503968064 Watching for file changes with StatReloader
+INFO 2025-08-04 04:42:55,882 autoreload 5445 132679503968064 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/admin.py changed, reloading.
+INFO 2025-08-04 04:43:02,681 autoreload 5560 134083072735040 Watching for file changes with StatReloader
+INFO 2025-08-04 04:43:19,044 autoreload 5560 134083072735040 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/admin.py changed, reloading.
+INFO 2025-08-04 04:43:25,961 autoreload 5629 126012780627776 Watching for file changes with StatReloader
+INFO 2025-08-04 04:44:13,418 autoreload 5629 126012780627776 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/admin.py changed, reloading.
+INFO 2025-08-04 04:44:21,748 autoreload 5743 140716633810752 Watching for file changes with StatReloader
+INFO 2025-08-04 04:44:34,448 autoreload 5743 140716633810752 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/models.py changed, reloading.
+INFO 2025-08-04 04:44:41,485 autoreload 5793 140482969122624 Watching for file changes with StatReloader
+INFO 2025-08-04 04:46:25,702 autoreload 5793 140482969122624 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/urls.py changed, reloading.
+INFO 2025-08-04 04:46:32,698 autoreload 6040 123680511932224 Watching for file changes with StatReloader
+INFO 2025-08-04 04:46:36,391 basehttp 6040 123680460826368 "GET / HTTP/1.1" 200 1803
+WARNING 2025-08-04 04:46:37,106 log 6040 123680460826368 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 04:46:37,107 basehttp 6040 123680460826368 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4022
+INFO 2025-08-04 04:46:43,685 basehttp 6040 123680460826368 "POST / HTTP/1.1" 302 0
+INFO 2025-08-04 04:46:43,720 basehttp 6040 123680460826368 "GET /todo/ HTTP/1.1" 200 5643
+WARNING 2025-08-04 04:46:44,091 log 6040 123680460826368 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 04:46:44,092 basehttp 6040 123680460826368 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4022
+ERROR 2025-08-04 04:46:48,917 log 6040 123680460826368 Internal Server Error: /home/
+Traceback (most recent call last):
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py", line 29, in home
+    overdue_tasks = tasks.filter(due_date__lt=timezone.now(), status='Pending').count()
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1546, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1577, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1427, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1237, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1725, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'due_date' into field. Choices are: id, priority, status, task, user, user_id
+ERROR 2025-08-04 04:46:48,959 basehttp 6040 123680460826368 "GET /home/ HTTP/1.1" 500 106200
+INFO 2025-08-04 04:46:52,338 basehttp 6040 123680460826368 "GET /todo/ HTTP/1.1" 200 5643
+INFO 2025-08-04 04:46:54,693 basehttp 6040 123680460826368 "GET /todo/ HTTP/1.1" 200 5643
+ERROR 2025-08-04 04:46:56,522 log 6040 123680460826368 Internal Server Error: /home/
+Traceback (most recent call last):
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py", line 29, in home
+    overdue_tasks = tasks.filter(due_date__lt=timezone.now(), status='Pending').count()
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1546, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1577, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1427, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1237, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1725, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'due_date' into field. Choices are: id, priority, status, task, user, user_id
+ERROR 2025-08-04 04:46:56,537 basehttp 6040 123680460826368 "GET /home/ HTTP/1.1" 500 106200
+INFO 2025-08-04 04:46:59,419 basehttp 6040 123680460826368 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-08-04 04:46:59,425 basehttp 6040 123680460826368 "GET / HTTP/1.1" 200 1803
+ERROR 2025-08-04 04:47:07,220 log 6040 123680460826368 Internal Server Error: /home/
+Traceback (most recent call last):
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 2053, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'SimpleLazyObject'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py", line 24, in home
+    tasks = Todo.objects.filter(user=request.user)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1546, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1577, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1492, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1319, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/lookups.py", line 27, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/fields/related_lookups.py", line 166, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 2055, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x707c994a5ca0>>.
+ERROR 2025-08-04 04:47:07,265 basehttp 6040 123680460826368 "GET /home/ HTTP/1.1" 500 124835
+WARNING 2025-08-04 04:47:10,246 log 6040 123680460826368 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 04:47:10,247 basehttp 6040 123680460826368 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4022
+INFO 2025-08-04 04:51:08,439 autoreload 6040 123680511932224 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py changed, reloading.
+INFO 2025-08-04 04:51:16,036 autoreload 6677 138089051551552 Watching for file changes with StatReloader
+INFO 2025-08-04 04:53:04,575 autoreload 6677 138089051551552 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py changed, reloading.
+INFO 2025-08-04 04:53:11,847 autoreload 6947 136424388695872 Watching for file changes with StatReloader
+INFO 2025-08-04 04:53:32,183 autoreload 6996 127245940127552 Watching for file changes with StatReloader
+INFO 2025-08-04 04:53:35,026 basehttp 6996 127245897418496 "GET / HTTP/1.1" 200 1803
+WARNING 2025-08-04 04:53:35,806 log 6996 127245897418496 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 04:53:35,808 basehttp 6996 127245897418496 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4022
+INFO 2025-08-04 04:53:43,252 basehttp 6996 127245897418496 "POST / HTTP/1.1" 302 0
+INFO 2025-08-04 04:53:43,285 basehttp 6996 127245897418496 "GET /todo/ HTTP/1.1" 200 5643
+ERROR 2025-08-04 04:53:46,016 log 6996 127245897418496 Internal Server Error: /home/
+Traceback (most recent call last):
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py", line 31, in home
+    overdue_tasks = tasks.filter(due_date__lt=timezone.now(), status='Pending').count()
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1546, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1577, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1427, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1237, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1725, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'due_date' into field. Choices are: id, priority, status, task, user, user_id
+ERROR 2025-08-04 04:53:46,063 basehttp 6996 127245897418496 "GET /home/ HTTP/1.1" 500 111234
+WARNING 2025-08-04 04:53:49,277 log 6996 127245897418496 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 04:53:49,278 basehttp 6996 127245897418496 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4022
+INFO 2025-08-04 05:02:50,568 autoreload 8251 126352964118336 Watching for file changes with StatReloader
+INFO 2025-08-04 05:22:52,601 autoreload 8251 126352964118336 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py changed, reloading.
+INFO 2025-08-04 05:23:04,748 autoreload 10272 127750755301184 Watching for file changes with StatReloader
+INFO 2025-08-04 05:23:43,540 autoreload 10272 127750755301184 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/urls.py changed, reloading.
+INFO 2025-08-04 05:23:56,566 autoreload 10387 137307099846464 Watching for file changes with StatReloader
+INFO 2025-08-04 05:24:49,131 autoreload 10502 125133966980928 Watching for file changes with StatReloader
+INFO 2025-08-04 05:24:54,595 basehttp 10502 125133915875072 "GET / HTTP/1.1" 200 1803
+WARNING 2025-08-04 05:24:56,492 log 10502 125133915875072 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 05:24:56,495 basehttp 10502 125133915875072 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4022
+INFO 2025-08-04 05:25:02,321 basehttp 10502 125133915875072 "POST / HTTP/1.1" 302 0
+ERROR 2025-08-04 05:25:02,740 log 10502 125133915875072 Internal Server Error: /home/
+Traceback (most recent call last):
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py", line 23, in home
+    overdue_tasks = tasks.filter(due_date__lt=timezone.now(), status='Pending').count()
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1546, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1577, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1427, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1237, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1725, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'due_date' into field. Choices are: id, priority, status, task, user, user_id
+ERROR 2025-08-04 05:25:02,801 basehttp 10502 125133915875072 "GET /home/ HTTP/1.1" 500 111358
+WARNING 2025-08-04 05:25:03,404 log 10502 125133915875072 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 05:25:03,405 basehttp 10502 125133915875072 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4022
+INFO 2025-08-04 05:26:32,820 autoreload 10739 129081399240512 Watching for file changes with StatReloader
+INFO 2025-08-04 05:27:46,959 basehttp 10739 129081274263296 "GET /todo/ HTTP/1.1" 200 5643
+INFO 2025-08-04 05:30:48,707 autoreload 10739 129081399240512 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py changed, reloading.
+INFO 2025-08-04 05:31:02,336 autoreload 11352 132338891622208 Watching for file changes with StatReloader
+INFO 2025-08-04 05:31:49,490 autoreload 11467 126448644110144 Watching for file changes with StatReloader
+WARNING 2025-08-04 05:32:00,630 log 11467 126448533944064 Not Found: /
+WARNING 2025-08-04 05:32:00,632 basehttp 11467 126448533944064 "GET / HTTP/1.1" 404 3668
+WARNING 2025-08-04 05:32:01,999 log 11467 126448533944064 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 05:32:02,005 basehttp 11467 126448533944064 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3863
+INFO 2025-08-04 05:32:04,585 basehttp 11467 126448533944064 "GET /login/ HTTP/1.1" 200 1803
+WARNING 2025-08-04 05:32:05,645 log 11467 126448533944064 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 05:32:05,648 basehttp 11467 126448533944064 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3863
+INFO 2025-08-04 05:32:18,606 basehttp 11467 126448533944064 "POST /login/ HTTP/1.1" 302 0
+ERROR 2025-08-04 05:32:19,020 log 11467 126448533944064 Internal Server Error: /todo/
+Traceback (most recent call last):
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py", line 66, in todo_view
+    return render(request, "todoapp.html", {"todos": todos})
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'home' not found. 'home' is not a valid view function or pattern name.
+ERROR 2025-08-04 05:32:19,111 basehttp 11467 126448533944064 "GET /todo/ HTTP/1.1" 500 124475
+INFO 2025-08-04 05:33:36,094 autoreload 11708 136373139552064 Watching for file changes with StatReloader
+WARNING 2025-08-04 05:33:40,210 log 11708 136373088429824 Not Found: /
+WARNING 2025-08-04 05:33:40,211 basehttp 11708 136373088429824 "GET / HTTP/1.1" 404 3668
+WARNING 2025-08-04 05:33:41,156 log 11708 136373088429824 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 05:33:41,158 basehttp 11708 136373088429824 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3863
+INFO 2025-08-04 05:33:44,367 basehttp 11708 136373088429824 "GET /login/ HTTP/1.1" 200 1802
+WARNING 2025-08-04 05:33:45,065 log 11708 136373088429824 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 05:33:45,067 basehttp 11708 136373088429824 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3863
+INFO 2025-08-04 05:33:50,786 basehttp 11708 136373088429824 "POST /login/ HTTP/1.1" 302 0
+ERROR 2025-08-04 05:33:51,235 log 11708 136373088429824 Internal Server Error: /todo/
+Traceback (most recent call last):
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py", line 66, in todo_view
+    return render(request, "todoapp.html", {"todos": todos})
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'home' not found. 'home' is not a valid view function or pattern name.
+ERROR 2025-08-04 05:33:51,332 basehttp 11708 136373088429824 "GET /todo/ HTTP/1.1" 500 124475
+WARNING 2025-08-04 05:33:52,015 log 11708 136373088429824 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 05:33:52,016 basehttp 11708 136373088429824 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3863
+INFO 2025-08-04 05:34:55,406 autoreload 11907 133159876704064 Watching for file changes with StatReloader
+WARNING 2025-08-04 05:35:01,775 log 11907 133159833978624 Not Found: /
+WARNING 2025-08-04 05:35:01,776 basehttp 11907 133159833978624 "GET / HTTP/1.1" 404 3668
+WARNING 2025-08-04 05:35:02,509 log 11907 133159833978624 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 05:35:02,510 basehttp 11907 133159833978624 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3863
+INFO 2025-08-04 05:35:06,140 basehttp 11907 133159833978624 "GET /login/ HTTP/1.1" 200 1802
+WARNING 2025-08-04 05:35:07,209 log 11907 133159833978624 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 05:35:07,210 basehttp 11907 133159833978624 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3863
+INFO 2025-08-04 05:35:14,027 basehttp 11907 133159833978624 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-08-04 05:35:14,074 basehttp 11907 133159833978624 "GET /todo/ HTTP/1.1" 200 5519
+WARNING 2025-08-04 05:35:14,479 log 11907 133159833978624 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 05:35:14,480 basehttp 11907 133159833978624 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3863
+INFO 2025-08-04 05:36:15,598 autoreload 12101 140588580218688 Watching for file changes with StatReloader
+INFO 2025-08-04 05:36:46,621 autoreload 12172 127775775188800 Watching for file changes with StatReloader
+WARNING 2025-08-04 05:36:51,613 log 12172 127775732467456 Not Found: /
+WARNING 2025-08-04 05:36:51,614 basehttp 12172 127775732467456 "GET / HTTP/1.1" 404 3668
+WARNING 2025-08-04 05:36:52,475 log 12172 127775732467456 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 05:36:52,477 basehttp 12172 127775732467456 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3863
+INFO 2025-08-04 05:37:29,835 autoreload 12273 126735691306816 Watching for file changes with StatReloader
+INFO 2025-08-04 05:37:38,656 basehttp 12273 126735648597760 "GET / HTTP/1.1" 200 1802
+WARNING 2025-08-04 05:37:40,078 log 12273 126735648597760 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 05:37:40,081 basehttp 12273 126735648597760 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3857
+INFO 2025-08-04 05:37:46,599 basehttp 12273 126735648597760 "POST / HTTP/1.1" 302 0
+INFO 2025-08-04 05:37:46,648 basehttp 12273 126735648597760 "GET /todo/ HTTP/1.1" 200 5524
+WARNING 2025-08-04 05:37:47,028 log 12273 126735648597760 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 05:37:47,030 basehttp 12273 126735648597760 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3857
+INFO 2025-08-04 05:37:57,684 basehttp 12273 126735648597760 "POST /todo/ HTTP/1.1" 302 0
+INFO 2025-08-04 05:37:57,714 basehttp 12273 126735648597760 "GET /todo/ HTTP/1.1" 200 6378
+INFO 2025-08-04 05:37:59,656 basehttp 12273 126735648597760 "POST /done/30/ HTTP/1.1" 302 0
+INFO 2025-08-04 05:37:59,684 basehttp 12273 126735648597760 "GET /todo/ HTTP/1.1" 200 6059
+INFO 2025-08-04 05:38:04,518 basehttp 12273 126735648597760 "POST /done/31/ HTTP/1.1" 302 0
+INFO 2025-08-04 05:38:04,548 basehttp 12273 126735648597760 "GET /todo/ HTTP/1.1" 200 5740
+INFO 2025-08-04 05:56:55,752 autoreload 12731 132242851419968 Watching for file changes with StatReloader
+INFO 2025-08-04 05:56:59,346 basehttp 12731 132242808706816 "GET / HTTP/1.1" 200 1802
+WARNING 2025-08-04 05:57:00,736 log 12731 132242808706816 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 05:57:00,737 basehttp 12731 132242808706816 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3857
+INFO 2025-08-04 05:57:05,484 basehttp 12731 132242808706816 "POST / HTTP/1.1" 302 0
+INFO 2025-08-04 05:57:05,549 basehttp 12731 132242808706816 "GET /todo/ HTTP/1.1" 200 5740
+WARNING 2025-08-04 05:57:06,103 log 12731 132242808706816 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 05:57:06,104 basehttp 12731 132242808706816 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3857
+INFO 2025-08-04 06:09:30,944 autoreload 12731 132242851419968 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py changed, reloading.
+INFO 2025-08-04 06:09:43,722 autoreload 14432 139751705761600 Watching for file changes with StatReloader
+INFO 2025-08-04 06:10:22,906 autoreload 14527 129368057218880 Watching for file changes with StatReloader
+INFO 2025-08-04 06:10:26,538 basehttp 14527 129368014518016 "GET / HTTP/1.1" 200 1802
+WARNING 2025-08-04 06:10:27,181 log 14527 129368014518016 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 06:10:27,182 basehttp 14527 129368014518016 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3857
+ERROR 2025-08-04 06:10:32,881 log 14527 129368014518016 Internal Server Error: /
+Traceback (most recent call last):
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py", line 95, in login_view
+    return redirect('home')  # Changed to dashboard
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'home' not found. 'home' is not a valid view function or pattern name.
+ERROR 2025-08-04 06:10:32,922 basehttp 14527 129368014518016 "POST / HTTP/1.1" 500 84932
+WARNING 2025-08-04 06:10:34,068 log 14527 129368014518016 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 06:10:34,069 basehttp 14527 129368014518016 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 3857
+INFO 2025-08-04 06:12:15,154 autoreload 14527 129368057218880 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py changed, reloading.
+INFO 2025-08-04 06:12:28,710 autoreload 14811 128830898984768 Watching for file changes with StatReloader
+INFO 2025-08-04 06:13:03,122 autoreload 14883 134921285908288 Watching for file changes with StatReloader
+INFO 2025-08-04 06:14:09,809 basehttp 14883 134921242654464 "GET /todo/ HTTP/1.1" 200 5603
+INFO 2025-08-04 06:14:14,509 basehttp 14883 134921242654464 "GET /home/ HTTP/1.1" 200 2449
+INFO 2025-08-04 06:14:18,225 basehttp 14883 134921242654464 "GET /todo/ HTTP/1.1" 200 5603
+INFO 2025-08-04 06:14:20,713 basehttp 14883 134921242654464 "GET /home/ HTTP/1.1" 200 2449
+INFO 2025-08-04 06:14:34,385 basehttp 14883 134921242654464 "GET /todo/ HTTP/1.1" 200 5603
+INFO 2025-08-04 06:14:38,692 basehttp 14883 134921242654464 "POST /logout/ HTTP/1.1" 302 0
+INFO 2025-08-04 06:14:38,717 basehttp 14883 134921242654464 "GET / HTTP/1.1" 200 1802
+INFO 2025-08-04 06:14:46,412 basehttp 14883 134921242654464 "POST / HTTP/1.1" 302 0
+INFO 2025-08-04 06:14:46,453 basehttp 14883 134921242654464 "GET /home/ HTTP/1.1" 200 2449
+INFO 2025-08-04 06:14:51,474 basehttp 14883 134921242654464 "GET /todo/ HTTP/1.1" 200 5603
+INFO 2025-08-04 06:14:53,374 basehttp 14883 134921242654464 "GET /home/ HTTP/1.1" 200 2449
+INFO 2025-08-04 06:16:23,746 autoreload 14883 134921285908288 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py changed, reloading.
+INFO 2025-08-04 06:16:55,278 autoreload 15455 126643351144256 Watching for file changes with StatReloader
+INFO 2025-08-04 06:16:58,945 basehttp 15455 126643300009728 "GET / HTTP/1.1" 200 1802
+WARNING 2025-08-04 06:16:59,599 log 15455 126643300009728 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 06:16:59,600 basehttp 15455 126643300009728 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4022
+INFO 2025-08-04 06:17:05,075 basehttp 15455 126643300009728 "POST / HTTP/1.1" 302 0
+INFO 2025-08-04 06:17:05,259 basehttp 15455 126643300009728 "GET /home/ HTTP/1.1" 200 2449
+WARNING 2025-08-04 06:17:05,685 log 15455 126643300009728 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 06:17:05,686 basehttp 15455 126643300009728 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4022
+INFO 2025-08-04 06:17:10,277 basehttp 15455 126643300009728 "GET /todo/ HTTP/1.1" 200 5603
+INFO 2025-08-04 06:17:17,517 basehttp 15455 126643308402432 "POST /done/32/ HTTP/1.1" 302 0
+INFO 2025-08-04 06:17:17,546 basehttp 15455 126643308402432 "GET /todo/ HTTP/1.1" 200 5276
+INFO 2025-08-04 06:17:19,622 basehttp 15455 126643308402432 "GET /home/ HTTP/1.1" 200 2449
+INFO 2025-08-04 06:17:23,668 basehttp 15455 126643308402432 "GET /todo/ HTTP/1.1" 200 5276
+INFO 2025-08-04 06:17:25,587 basehttp 15455 126643308402432 "POST /delete/32/ HTTP/1.1" 302 0
+INFO 2025-08-04 06:17:25,615 basehttp 15455 126643308402432 "GET /todo/ HTTP/1.1" 200 4743
+INFO 2025-08-04 06:17:27,258 basehttp 15455 126643308402432 "GET /home/ HTTP/1.1" 200 2449

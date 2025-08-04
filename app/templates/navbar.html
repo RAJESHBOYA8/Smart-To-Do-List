@@ -1,0 +1,9 @@
+<!-- templates/navbar.html -->
+<div style="position: fixed; top: 20px; right: 30px; z-index: 1000;">
+  <a href="{% url 'home' %}" style="margin-right: 15px; font-weight: bold;">Home</a>
+  <a href="{% url 'todo' %}" style="margin-right: 15px; font-weight: bold;">Add Tasks</a>
+  <form action="{% url 'logout' %}" method="post" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" style="background: none; border: none; color: red; font-weight: bold;">Logout</button>
+  </form>
+</div>

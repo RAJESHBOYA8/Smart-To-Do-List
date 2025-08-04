@@ -16,6 +16,22 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect
 from .models import Todo
 from django.views.decorators.http import require_http_methods
+@login_required
+def home(request):
+    todos = Todo.objects.filter(user=request.user)
+    total = todos.count()
+    completed = todos.filter(status='Completed').count()
+    pending = todos.filter(status='Pending').count()
+    overdue = todos.filter(status='Overdue').count()
+    return render(request, 'dashboard.html', {
+        'total': total,
+        'completed': completed,
+        'pending': pending,
+        'overdue': overdue,
+    })
+
+
+
 
 @login_required
 def edit_todo(request, todo_id):
@@ -78,11 +94,13 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return redirect('todo')
+            return redirect('home')
+            # Changed to dashboard
         else:
             messages.error(request, 'Invalid username or password.')
             return redirect('login')
     return render(request, 'login.html')
+
 
 
 

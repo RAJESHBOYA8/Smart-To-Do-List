@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .stat-box {
+      flex: 1;
+      margin: 0 10px;
+      padding: 20px;
+      border-radius: 10px;
+      color: #333;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .total { background-color: #dbeafe; }
+    .completed { background-color: #ccfbf1; }
+    .pending { background-color: #fef9c3; }
+    .overdue { background-color: #fee2e2; }
+
+    .chart-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+  </style>
+</head>
+<body>
+
+  {% include "navbar.html" %}
+
+  <h1 style="text-align:center;">SMART TO-DO LIST</h1>
+
+  <div class="stats-container">
+    <div class="stat-box total">Total Tasks<br><span style="font-size:24px;">{{ total }}</span></div>
+    <div class="stat-box completed">Completed<br><span style="font-size:24px;">{{ completed }}</span></div>
+    <div class="stat-box pending">Pending<br><span style="font-size:24px;">{{ pending }}</span></div>
+    <div class="stat-box overdue">Overdue<br><span style="font-size:24px;">{{ overdue }}</span></div>
+  </div>
+
+  <div class="chart-container">
+    <h2 style="text-align:center;">Task Status</h2>
+    <canvas id="taskChart"></canvas>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('taskChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Completed', 'Pending', 'Overdue'],
+        datasets: [{
+          label: 'Tasks',
+          data: [{{ completed }}, {{ pending }}, {{ overdue }}],
+          backgroundColor: ['#3b82f6', '#facc15', '#ef4444'],
+        }]
+      }
+    });
+  </script>
+
+</body>
+</html>

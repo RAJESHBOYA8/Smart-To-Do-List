@@ -1,24 +1,275 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Edit Task</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task - Smart To-Do List</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin: 0 0 10px 0;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: #666;
+            margin: 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input[type="text"], 
+        select, 
+        textarea,
+        input[type="datetime-local"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus, 
+        select:focus, 
+        textarea:focus,
+        input[type="datetime-local"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #95a5a6, #7f8c8d);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(149, 165, 166, 0.4);
+        }
+
+        .priority-indicator {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            margin-left: 10px;
+        }
+
+        .priority-high { background: #e74c3c; }
+        .priority-medium { background: #f39c12; }
+        .priority-low { background: #27ae60; }
+
+        .status-indicator {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            margin-left: 10px;
+        }
+
+        .status-pending { background: #f39c12; }
+        .status-in-progress { background: #3498db; }
+        .status-completed { background: #27ae60; }
+        .status-overdue { background: #e74c3c; }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+        }
+
+        .messages {
+            margin-bottom: 20px;
+        }
+
+        .message {
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .message.success {
+            background: rgba(46, 204, 113, 0.1);
+            color: #27ae60;
+            border: 1px solid rgba(46, 204, 113, 0.3);
+        }
+
+        .message.error {
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+            border: 1px solid rgba(231, 76, 60, 0.3);
+        }
+    </style>
 </head>
 <body>
-    <h2>Edit Task</h2>
-    <form method="POST">
-        {% csrf_token %}
-        <label>Task:</label>
-        <input type="text" name="task" value="{{ todo.task }}" required><br><br>
+    <div class="container">
+        <div class="header">
+            <h1>✏️ Edit Task</h1>
+            <p>Update your task details below</p>
+        </div>
 
-        <label>Priority:</label>
-        <select name="priority" required>
-            <option value="High" {% if todo.priority == "High" %}selected{% endif %}>1 - High</option>
-            <option value="Medium" {% if todo.priority == "Medium" %}selected{% endif %}>2 - Medium</option>
-            <option value="Low" {% if todo.priority == "Low" %}selected{% endif %}>3 - Low</option>
-        </select><br><br>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
 
-        <button type="submit">Save</button>
-        <a href="{% url 'todo' %}">Cancel</a>
-    </form>
+        <form method="POST">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="task">📝 Task Description</label>
+                <input type="text" id="task" name="task" value="{{ todo.task }}" required 
+                       placeholder="Enter task description...">
+            </div>
+
+            <div class="form-group">
+                <label for="priority">🎯 Priority</label>
+                <select id="priority" name="priority" required>
+                    <option value="High" {% if todo.priority == "High" %}selected{% endif %}>
+                        🔥 High Priority
+                    </option>
+                    <option value="Medium" {% if todo.priority == "Medium" %}selected{% endif %}>
+                        ⚡ Medium Priority
+                    </option>
+                    <option value="Low" {% if todo.priority == "Low" %}selected{% endif %}>
+                        💚 Low Priority
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="category">📂 Category</label>
+                <select id="category" name="category">
+                    <option value="Work" {% if todo.category == "Work" %}selected{% endif %}>💼 Work</option>
+                    <option value="Personal" {% if todo.category == "Personal" %}selected{% endif %}>👤 Personal</option>
+                    <option value="Health" {% if todo.category == "Health" %}selected{% endif %}>🏥 Health</option>
+                    <option value="Education" {% if todo.category == "Education" %}selected{% endif %}>📚 Education</option>
+                    <option value="Finance" {% if todo.category == "Finance" %}selected{% endif %}>💰 Finance</option>
+                    <option value="Other" {% if todo.category == "Other" or not todo.category %}selected{% endif %}>📁 Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="status">📊 Status</label>
+                <select id="status" name="status">
+                    <option value="Pending" {% if todo.status == "Pending" %}selected{% endif %}>⏳ Pending</option>
+                    <option value="In Progress" {% if todo.status == "In Progress" %}selected{% endif %}>🔄 In Progress</option>
+                    <option value="Completed" {% if todo.status == "Completed" %}selected{% endif %}>✅ Completed</option>
+                    <option value="Overdue" {% if todo.status == "Overdue" %}selected{% endif %}>⚠️ Overdue</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="due_date">📅 Due Date (Optional)</label>
+                <input type="datetime-local" id="due_date" name="due_date" 
+                       value="{% if todo.due_date %}{{ todo.due_date|date:'Y-m-d\TH:i' }}{% endif %}">
+            </div>
+
+            <div class="form-group">
+                <label for="notes">📝 Notes (Optional)</label>
+                <textarea id="notes" name="notes" placeholder="Add any additional notes...">{{ todo.notes|default:'' }}</textarea>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary">💾 Save Changes</button>
+                <a href="{% url 'todo' %}" class="btn btn-secondary">❌ Cancel</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
