@@ -6,57 +6,100 @@
   <title>Dashboard</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
+     <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f6f8;
+      font-family: 'Inter', sans-serif;
+      background-color: #f0f2f5;
       margin: 0;
       padding: 20px;
     }
 
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #1f2937;
+    }
+
     .stats-container {
       display: flex;
-      justify-content: space-between;
-      margin-bottom: 30px;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
     }
 
     .stat-box {
-      flex: 1;
-      margin: 0 10px;
-      padding: 20px;
-      border-radius: 10px;
-      color: #333;
+      flex: 1 1 200px;
+      padding: 25px;
+      border-radius: 12px;
+      color: #1f2937;
       text-align: center;
-      font-weight: bold;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease;
     }
 
-    .total { background-color: #dbeafe; }
-    .completed { background-color: #ccfbf1; }
-    .pending { background-color: #fef9c3; }
-    .overdue { background-color: #fee2e2; }
+    .stat-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .total {
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    }
+
+    .completed {
+      background: linear-gradient(135deg, #ccfbf1, #99f6e4);
+    }
+
+    .pending {
+      background: linear-gradient(135deg, #fef9c3, #fde68a);
+    }
+
+    .overdue {
+      background: linear-gradient(135deg, #fee2e2, #fecaca);
+    }
+
+    .stat-box span {
+      font-size: 30px;
+      display: block;
+      margin-top: 10px;
+      font-weight: 700;
+    }
 
     .chart-container {
       width: 100%;
       max-width: 600px;
       margin: 0 auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
     }
 
+    .chart-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #111827;
+    }
+  </style>
   </style>
 </head>
 <body>
+{% include 'navbar.html' %}
 
-  {% include "navbar.html" %}
 
-  <h1 style="text-align:center;">SMART TO-DO LIST</h1>
+
+  <h1>SMART TO-DO LIST</h1>
 
   <div class="stats-container">
-    <div class="stat-box total">Total Tasks<br><span style="font-size:24px;">{{ total }}</span></div>
-    <div class="stat-box completed">Completed<br><span style="font-size:24px;">{{ completed }}</span></div>
-    <div class="stat-box pending">Pending<br><span style="font-size:24px;">{{ pending }}</span></div>
-    <div class="stat-box overdue">Overdue<br><span style="font-size:24px;">{{ overdue }}</span></div>
+    <div class="stat-box total">Total Tasks<br><span>{{ total }}</span></div>
+    <div class="stat-box completed">Completed<br><span>{{ completed }}</span></div>
+    <div class="stat-box pending">Pending<br><span>{{ pending }}</span></div>
   </div>
 
   <div class="chart-container">
-    <h2 style="text-align:center;">Task Status</h2>
+    <h2>Task Status</h2>
     <canvas id="taskChart"></canvas>
   </div>
 
@@ -65,12 +108,26 @@
     new Chart(ctx, {
       type: 'doughnut',
       data: {
-        labels: ['Completed', 'Pending', 'Overdue'],
+        labels: ['Completed', 'Pending'],
         datasets: [{
           label: 'Tasks',
-          data: [{{ completed }}, {{ pending }}, {{ overdue }}],
-          backgroundColor: ['#3b82f6', '#facc15', '#ef4444'],
+          data: [{{ completed }}, {{ pending }}],
+          backgroundColor: ['#10b981', '#f59e0b'],
+          borderWidth: 1,
         }]
+      },
+      options: {
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              color: '#374151',
+              font: {
+                size: 14
+              }
+            }
+          }
+        }
       }
     });
   </script>
