@@ -16,5 +16,7 @@ class TodoForm(forms.ModelForm):
 
 class TaskForm(forms.ModelForm):
     class Meta:
-        model = Task
+        model = Todo
         fields = ['task', 'priority']
+
+

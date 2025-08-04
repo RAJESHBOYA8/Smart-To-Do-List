@@ -1053,3 +1053,65 @@ INFO 2025-08-04 06:51:22,557 basehttp 20244 138887028537088 "POST /logout/ HTTP/
 INFO 2025-08-04 06:51:22,564 basehttp 20244 138887028537088 "GET / HTTP/1.1" 200 1803
 INFO 2025-08-04 06:51:28,457 basehttp 20244 138887028537088 "POST / HTTP/1.1" 302 0
 INFO 2025-08-04 06:51:28,508 basehttp 20244 138887028537088 "GET /home/ HTTP/1.1" 200 3305
+INFO 2025-08-04 07:03:32,393 autoreload 22001 126952731510592 Watching for file changes with StatReloader
+INFO 2025-08-04 07:04:13,741 autoreload 22094 137608429123392 Watching for file changes with StatReloader
+INFO 2025-08-04 07:04:21,693 basehttp 22094 137608386119424 "GET / HTTP/1.1" 200 1803
+WARNING 2025-08-04 07:04:22,733 log 22094 137608386119424 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 07:04:22,735 basehttp 22094 137608386119424 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4217
+INFO 2025-08-04 07:04:28,588 basehttp 22094 137608386119424 "POST / HTTP/1.1" 302 0
+INFO 2025-08-04 07:04:28,817 basehttp 22094 137608386119424 "GET /home/ HTTP/1.1" 200 4148
+WARNING 2025-08-04 07:04:29,445 log 22094 137608386119424 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 07:04:29,447 basehttp 22094 137608386119424 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4217
+INFO 2025-08-04 07:04:39,234 basehttp 22094 137608386119424 "GET /home/ HTTP/1.1" 200 4148
+INFO 2025-08-04 07:04:41,735 basehttp 22094 137608386119424 "GET /todo/ HTTP/1.1" 200 5192
+ERROR 2025-08-04 07:04:44,870 log 22094 137608386119424 Internal Server Error: /edit_task/30/
+Traceback (most recent call last):
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py", line 58, in edit_task
+    form = TodoForm(instance=todo)
+NameError: name 'TodoForm' is not defined
+ERROR 2025-08-04 07:04:44,889 basehttp 22094 137608386119424 "GET /edit_task/30/ HTTP/1.1" 500 64999
+ERROR 2025-08-04 07:04:54,262 log 22094 137608386119424 Internal Server Error: /edit_task/30/
+Traceback (most recent call last):
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py", line 58, in edit_task
+    form = TodoForm(instance=todo)
+NameError: name 'TodoForm' is not defined
+ERROR 2025-08-04 07:04:54,281 basehttp 22094 137608386119424 "GET /edit_task/30/ HTTP/1.1" 500 64999
+WARNING 2025-08-04 07:04:57,741 log 22094 137608386119424 Not Found: /edit_task/src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 07:04:57,742 basehttp 22094 137608386119424 "GET /edit_task/src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4247
+INFO 2025-08-04 07:05:40,529 autoreload 22094 137608429123392 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/views.py changed, reloading.
+INFO 2025-08-04 07:06:16,438 autoreload 22397 130850644825920 Watching for file changes with StatReloader
+INFO 2025-08-04 07:06:34,200 autoreload 22397 130850644825920 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/forms.py changed, reloading.
+INFO 2025-08-04 07:06:58,671 autoreload 22491 139675689686848 Watching for file changes with StatReloader
+INFO 2025-08-04 07:07:15,096 autoreload 22491 139675689686848 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/project/app/forms.py changed, reloading.
+INFO 2025-08-04 07:07:25,159 autoreload 22563 129839835297600 Watching for file changes with StatReloader
+INFO 2025-08-04 07:07:28,992 basehttp 22563 129839792584448 "GET / HTTP/1.1" 200 1803
+WARNING 2025-08-04 07:07:30,034 log 22563 129839792584448 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 07:07:30,036 basehttp 22563 129839792584448 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4217
+INFO 2025-08-04 07:07:35,983 basehttp 22563 129839792584448 "POST / HTTP/1.1" 302 0
+INFO 2025-08-04 07:07:36,167 basehttp 22563 129839792584448 "GET /home/ HTTP/1.1" 200 4148
+INFO 2025-08-04 07:07:38,829 basehttp 22563 129839792584448 "GET /todo/ HTTP/1.1" 200 5192
+WARNING 2025-08-04 07:07:41,761 log 22563 129839792584448 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 07:07:41,762 basehttp 22563 129839792584448 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4217
+INFO 2025-08-04 07:07:42,238 basehttp 22563 129839792584448 "GET /edit_task/30/ HTTP/1.1" 200 1741
+INFO 2025-08-04 07:07:50,599 basehttp 22563 129839784191744 "POST /edit_task/30/ HTTP/1.1" 302 0
+INFO 2025-08-04 07:07:50,645 basehttp 22563 129839784191744 "GET /home/ HTTP/1.1" 200 4148
+INFO 2025-08-04 07:07:53,537 basehttp 22563 129839784191744 "GET /todo/ HTTP/1.1" 200 5191
+INFO 2025-08-04 07:07:58,334 basehttp 22563 129839792584448 "GET /edit_task/30/ HTTP/1.1" 200 1742
+INFO 2025-08-04 07:08:04,293 basehttp 22563 129839792584448 "POST /edit_task/30/ HTTP/1.1" 302 0
+INFO 2025-08-04 07:08:04,336 basehttp 22563 129839792584448 "GET /home/ HTTP/1.1" 200 4148
+INFO 2025-08-04 07:08:07,283 basehttp 22563 129839792584448 "GET /todo/ HTTP/1.1" 200 5201
+INFO 2025-08-04 07:09:29,043 autoreload 22866 136598216959808 Watching for file changes with StatReloader
+INFO 2025-08-04 07:09:32,424 basehttp 22866 136598165841664 "GET / HTTP/1.1" 200 1803
+WARNING 2025-08-04 07:09:33,472 log 22866 136598165841664 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-04 07:09:33,473 basehttp 22866 136598165841664 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 4217
+INFO 2025-08-04 07:09:38,571 basehttp 22866 136598165841664 "POST / HTTP/1.1" 302 0
+INFO 2025-08-04 07:09:38,754 basehttp 22866 136598165841664 "GET /home/ HTTP/1.1" 200 4148
+INFO 2025-08-04 07:09:44,047 basehttp 22866 136598165841664 "GET /todo/ HTTP/1.1" 200 5200

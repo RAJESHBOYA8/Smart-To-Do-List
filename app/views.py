@@ -16,6 +16,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect
 from .models import Todo
 from django.views.decorators.http import require_http_methods
+from .forms import TodoForm
+
 @login_required
 def home(request):
     todos = Todo.objects.filter(user=request.user)
@@ -47,7 +49,16 @@ def edit_todo(request, todo_id):
 
     return render(request, "edit_todo.html", {"todo": todo})
 
-
+def edit_task(request, todo_id):
+    todo = get_object_or_404(Todo, id=todo_id)
+    if request.method == "POST":
+        form = TodoForm(request.POST, instance=todo)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = TodoForm(instance=todo)
+    return render(request, 'edit_task.html', {'form': form, 'todo': todo})
 
 
 

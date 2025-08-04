@@ -57,7 +57,7 @@
 
     .btn {
       padding: 5px 10px;
-      margin-right: 5px;
+      margin-left: 5px;
       border: none;
       border-radius: 4px;
       cursor: pointer;
@@ -106,6 +106,8 @@
             {{ todo.status }}
           </td>
           <td>
+            <a href="{% url 'edit_task' todo.id %}" class="btn btn-edit">Edit</a>
+
             {% if todo.status != 'Completed' %}
               <form method="post" action="{% url 'mark_done' todo.id %}" style="display:inline;">
                 {% csrf_token %}
