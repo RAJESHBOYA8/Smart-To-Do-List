@@ -1,11 +1,11 @@
-<nav style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background-color: #e0e0e0;">
-  <div>
-    <a href="{% url 'home' %}">Home</a> |
-    <a href="{% url 'todo' %}">To-Do</a> |
-    <a href="{% url 'logout' %}">Logout</a>
-  </div>
+<nav style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background-color: #e0e0e0; margin-bottom: 20px;">
   <div>
     <button id="dark-mode-toggle" style="background: none; border: none; font-size: 20px; cursor: pointer;">🌙</button>
+  </div>
+  <div class="nav-links">
+    <a href="{% url 'home' %}" style="margin-right: 15px; font-weight: 600; text-decoration: none; color: #333;">Home</a>
+    <a href="{% url 'todo' %}" style="margin-right: 15px; font-weight: 600; text-decoration: none; color: #333;">Add Tasks</a>
+    <a href="{% url 'logout' %}" style="color: red; font-weight: 700; text-decoration: none;">Logout</a>
   </div>
 </nav>
 
@@ -56,10 +56,14 @@
   }
 
   .dark-mode nav {
-    background-color: #2a2a2a;
+    background-color: #2a2a2a !important;
   }
 
-  .dark-mode a {
-    color: #87ceeb;
+  .dark-mode .nav-links a {
+    color: #87ceeb !important;
+  }
+
+  .dark-mode .nav-links a[href*="logout"] {
+    color: #ff6b6b !important;
   }
 </style>

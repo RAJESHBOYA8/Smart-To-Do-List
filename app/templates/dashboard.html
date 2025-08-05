@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,78 +8,201 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-            background: #f0f4f8;
-            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
         }
+        
+        .dashboard-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .dashboard-title {
+            text-align: center;
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
         .summary-card {
-            border-radius: 12px;
-            padding: 20px;
-            color: #000;
+            border-radius: 15px;
+            padding: 25px;
+            color: #fff;
             font-weight: 600;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
         }
+        
+        .summary-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+        }
+        
         .summary-total {
-            background-color: #a8c0ff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
+        
         .summary-completed {
-            background-color: #a8fff0;
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
         }
+        
         .summary-pending {
-            background-color: #fff3a8;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
+        
+        .summary-card h5 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .summary-card h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        
         .task-section {
             background: #fff;
-            border-radius: 12px;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+        
+        .task-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+        
+        .task-section h4 {
+            color: #e67e22;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #f39c12;
+            padding-bottom: 10px;
+        }
+        
+        .completed-tasks h4 {
+            color: #27ae60;
+            border-bottom-color: #2ecc71;
+        }
+        
+        .chart-section h4 {
+            color: #3498db;
+            border-bottom-color: #5dade2;
+            text-align: center;
+        }
+        
+        .task-list {
+            max-height: 250px;
+            overflow-y: auto;
+            border-radius: 10px;
+            background: #f8f9fa;
+            padding: 10px;
+        }
+        
+        .task-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .task-list::-webkit-scrollbar-track {
+            background: #e9ecef;
+            border-radius: 3px;
+        }
+        
+        .task-list::-webkit-scrollbar-thumb {
+            background: #ced4da;
+            border-radius: 3px;
+        }
+        
+        .task-list::-webkit-scrollbar-thumb:hover {
+            background: #adb5bd;
+        }
+        
+        .task-item {
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            background: #fff;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .task-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .task-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .pending-tasks .task-item {
+            border-left-color: #e74c3c;
+        }
+        
+        .completed-tasks .task-item {
+            border-left-color: #27ae60;
+            background: #f8fff8;
+        }
+        
+        .no-tasks {
+            text-align: center;
+            color: #7f8c8d;
+            font-style: italic;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            background: #ecf0f1;
+            border-radius: 8px;
+        }
+        
+        .row {
             margin-bottom: 20px;
         }
-        .task-section h4 {
-            color: #f0ad4e;
+        
+        .col-md {
             margin-bottom: 15px;
         }
-        .completed-tasks h4 {
-            color: #28a745;
-        }
-        .nav-links {
-            margin-bottom: 20px;
-            text-align: right;
-        }
-        .nav-links a {
-            margin-left: 15px;
-            font-weight: 600;
-            text-decoration: none;
-        }
-        .nav-links a.logout {
-            color: red;
-            font-weight: 700;
-        }
-        .task-list {
-            max-height: 200px;
-            overflow-y: auto;
-        }
-        .task-list .task-item {
-            padding: 8px 12px;
-            border-bottom: 1px solid #eee;
-        }
-        .task-list .task-item:last-child {
-            border-bottom: none;
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                margin: 10px;
+                padding: 20px;
+            }
+            
+            .dashboard-title {
+                font-size: 2rem;
+            }
+            
+            .summary-card h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="nav-links">
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'todo' %}">Add Tasks</a>
-            <a href="{% url 'logout' %}" class="logout">Logout</a>
-        </div>
-        <div class="row mb-4 g-3">
-            <div class="col-md-12">
-                <!-- Calendar input removed as per request -->
-            </div>
-        </div>
+
+    {% include "navbar.html" %}
+
+    <div class="dashboard-container">
+        <h1 class="dashboard-title">📊 Dashboard</h1>
         <div class="row mb-4 g-3">
             <div class="col-md summary-card summary-total">
                 <h5>Total Tasks</h5>
@@ -100,15 +224,15 @@
                 <div class="task-list" id="pendingTasksList">
                     {% if pending_tasks %}
                         {% for task in pending_tasks %}
-                            <div class="task-item {% if task.due_date < today %}overdue{% endif %}">{{ task.task }}</div>
+                            <div class="task-item">{{ task.task }}</div>
                         {% endfor %}
                     {% else %}
-                        <div>No pending tasks.</div>
+                        <div class="no-tasks">No pending tasks.</div>
                     {% endif %}
                 </div>
             </div>
-            <div class="col-md-4 task-section">
-                <h4 class="text-center">Task Status</h4>
+            <div class="col-md-4 task-section chart-section">
+                <h4>Task Status</h4>
                 <canvas id="taskStatusChart"></canvas>
             </div>
             <div class="col-md-4 task-section completed-tasks">
@@ -119,12 +243,11 @@
                             <div class="task-item">{{ task.task }}</div>
                         {% endfor %}
                     {% else %}
-                        <div>No completed tasks.</div>
+                        <div class="no-tasks">No completed tasks.</div>
                     {% endif %}
                 </div>
             </div>
         </div>
-        <div class="row g-3">
     </div>
 
     <script>

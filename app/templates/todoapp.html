@@ -6,131 +6,352 @@
   <title>To-Do List</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f7f7f7;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
     }
 
-    h1 {
+    .todo-container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 30px;
+      margin: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .todo-title {
       text-align: center;
+      color: #2c3e50;
+      font-weight: 700;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    #task-form {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 700px;
+      margin: 30px auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      border: none;
+    }
+
+    #task-form input, #task-form select {
+      padding: 12px 15px;
+      margin: 8px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      min-width: 200px;
+    }
+
+    #task-form input:focus, #task-form select:focus {
+      outline: none;
+      background: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .bu {
+      background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      margin: 8px;
+    }
+
+    .bu:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    .table-container {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 30px auto;
+      max-width: 1000px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      overflow: hidden;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      background-color: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .bu {
-      background-color: lightblue;
-      border-radius: 10px;
-    }
-
-    th, td {
-      border: 1px solid #ccc;
-      padding: 12px;
-      text-align: left;
+      background-color: transparent;
     }
 
     th {
-      background-color: #eee;
-    }
-
-    .priority-high { color: red; font-weight: bold; }
-    .priority-medium { color: orange; font-weight: bold; }
-    .priority-low { color: green; font-weight: bold; }
-
-    input, select {
-      padding: 8px;
-      margin: 5px;
-    }
-
-    #task-form {
-      background-color: white;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
       padding: 15px;
-      border: 1px solid #ccc;
-      max-width: 600px;
-      margin: 20px auto;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      text-align: left;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border: none;
+    }
+
+    th:first-child {
+      border-top-left-radius: 10px;
+    }
+
+    th:last-child {
+      border-top-right-radius: 10px;
+    }
+
+    td {
+      padding: 15px;
+      border-bottom: 1px solid #e9ecef;
+      vertical-align: middle;
+      transition: background-color 0.2s ease;
+    }
+
+    tr:hover td {
+      background-color: #f8f9fa;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .priority-high { 
+      color: #e74c3c; 
+      font-weight: bold;
+      background: #fdf2f2;
+      padding: 5px 10px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    .priority-medium { 
+      color: #f39c12; 
+      font-weight: bold;
+      background: #fef9e7;
+      padding: 5px 10px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    .priority-low { 
+      color: #27ae60; 
+      font-weight: bold;
+      background: #eafaf1;
+      padding: 5px 10px;
+      border-radius: 20px;
+      display: inline-block;
     }
 
     .btn {
-      padding: 5px 10px;
-      margin-left: 5px;
+      padding: 8px 15px;
+      margin: 2px;
       border: none;
-      border-radius: 4px;
+      border-radius: 8px;
       cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 0.9rem;
     }
 
-    .btn-edit { background-color: #3498db; color: white; }
-    .btn-delete { background-color: #e74c3c; color: white; }
-    .btn-done { background-color: #2ecc71; color: white; }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .btn-edit { 
+      background: linear-gradient(135deg, #3498db, #5dade2);
+      color: white;
+    }
+
+    .btn-delete { 
+      background: linear-gradient(135deg, #e74c3c, #ec7063);
+      color: white;
+    }
+
+    .btn-done { 
+      background: linear-gradient(135deg, #2ecc71, #58d68d);
+      color: white;
+    }
+
+    .status-completed {
+      color: #27ae60;
+      font-weight: 600;
+      background: #eafaf1;
+      padding: 5px 10px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    .status-pending {
+      color: #e67e22;
+      font-weight: 600;
+      background: #fef5e7;
+      padding: 5px 10px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    .no-tasks {
+      text-align: center;
+      color: #7f8c8d;
+      font-style: italic;
+      padding: 40px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      font-size: 1.1rem;
+    }
+
+    .task-cell {
+      font-weight: 500;
+      color: #2c3e50;
+    }
+
+    .actions-cell {
+      white-space: nowrap;
+    }
+
+    /* Form styling improvements */
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .todo-container {
+        margin: 10px;
+        padding: 20px;
+      }
+
+      .todo-title {
+        font-size: 2rem;
+      }
+
+      #task-form {
+        padding: 20px;
+      }
+
+      .form-row {
+        flex-direction: column;
+      }
+
+      #task-form input, #task-form select {
+        width: 100%;
+        min-width: auto;
+      }
+
+      table {
+        font-size: 0.9rem;
+      }
+
+      .btn {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
+    }
+
+    /* Animation for new tasks */
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    tr {
+      animation: slideIn 0.3s ease-out;
+    }
   </style>
 </head>
 <body>
 
   {% include "navbar.html" %}
 
-  <h1>To-Do List</h1>
+  <div class="todo-container">
+    <h1 class="todo-title">📝 To-Do List</h1>
 
-  <div class="mb-3" style="max-width: 600px; margin: 0 auto;">
-    <!-- Calendar input removed as per request -->
+    <!-- Task Form -->
+    <form id="task-form" method="POST" action="{% url 'todo' %}">
+      {% csrf_token %}
+      <div class="form-row">
+        <input type="text" name="task" placeholder="Enter your task..." required>
+        <select name="priority" required>
+          <option value="">Select priority</option>
+          <option value="High">🔴 High Priority</option>
+          <option value="Medium">🟡 Medium Priority</option>
+          <option value="Low">🟢 Low Priority</option>
+        </select>
+        <button class="bu" type="submit">✨ Add Task</button>
+      </div>
+    </form>
+
+    <!-- Task Table -->
+    <div class="table-container">
+      <table id="tasks">
+        <thead>
+          <tr>
+            <th>📋 Task</th>
+            <th>⚡ Priority</th>
+            <th>📊 Status</th>
+            <th>🔧 Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for todo in todos %}
+            <tr data-due-date="{{ todo.due_date }}">
+              <td class="task-cell">{{ todo.task }}</td>
+              <td class="priority-{{ todo.priority|lower }}">{{ todo.priority }}</td>
+              <td>
+                {% if todo.status == 'Completed' %}
+                  <span class="status-completed">✅ {{ todo.status }}</span>
+                {% else %}
+                  <span class="status-pending">⏳ {{ todo.status }}</span>
+                {% endif %}
+              </td>
+              <td class="actions-cell">
+                <a href="{% url 'edit_task' todo.id %}" class="btn btn-edit">✏️ Edit</a>
+
+                {% if todo.status != 'Completed' %}
+                  <form method="post" action="{% url 'mark_done' todo.id %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-done">✅ Done</button>
+                  </form>
+                {% endif %}
+                <form method="post" action="{% url 'delete_task' todo.id %}" style="display:inline;">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-delete">🗑️ Delete</button>
+                </form>
+              </td>
+            </tr>
+          {% empty %}
+            <tr><td colspan="4" class="no-tasks">📝 No tasks yet. Add your first task above!</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </div>
-
-  <!-- Task Form -->
-  <form id="task-form" method="POST" action="{% url 'todo' %}" style="max-width: 600px; margin: 0 auto;">
-    {% csrf_token %}
-    <input type="text" name="task" placeholder="Enter task" required>
-    <!-- Removed due_date input as per request -->
-    <select name="priority" required>
-      <option value="">Select priority</option>
-      <option value="High">1 - High</option>
-      <option value="Medium">2 - Medium</option>
-      <option value="Low">3 - Low</option>
-    </select>
-    <button class="bu" type="submit">Add Task</button>
-  </form>
-
-  <!-- Task Table -->
-  <table id="tasks" style="max-width: 800px; margin: 20px auto;">
-    <thead>
-      <tr>
-        <th>Task</th>
-        <th>Priority</th>
-        <th>Status</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for todo in todos %}
-        <tr data-due-date="{{ todo.due_date }}">
-          <td>{{ todo.task }}</td>
-          <td class="priority-{{ todo.priority|lower }}">{{ todo.priority }}</td>
-          <td style="color: {% if todo.status == 'Completed' %}green{% else %}black{% endif %};">
-            {{ todo.status }}
-          </td>
-
-          <td>
-            <a href="{% url 'edit_task' todo.id %}" class="btn btn-edit">Edit</a>
-
-            {% if todo.status != 'Completed' %}
-              <form method="post" action="{% url 'mark_done' todo.id %}" style="display:inline;">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-done">Mark Done</button>
-              </form>
-            {% endif %}
-            <form method="post" action="{% url 'delete_task' todo.id %}" style="display:inline;">
-              {% csrf_token %}
-              <button type="submit" class="btn btn-delete">Delete</button>
-            </form>
-          </td>
-        </tr>
-      {% empty %}
-        <tr><td colspan="5" style="text-align:center;">No tasks yet.</td></tr>
-      {% endfor %}
-    </tbody>
-  </table>
 
   <script>
     // Calendar filtering removed as per request
