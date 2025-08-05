@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Activation Failed</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        a {
+            color: #721c24;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Activation Failed</h1>
+    <p>The activation link is invalid or has expired.</p>
+    <p><a href="{% url 'register' %}">Register</a> or <a href="{% url 'login' %}">Login</a></p>
+</body>
+</html>

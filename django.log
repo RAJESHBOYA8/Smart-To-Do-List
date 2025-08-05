@@ -2936,3 +2936,519 @@ INFO 2025-08-05 12:21:05,656 basehttp 18776 24748 "GET /todo/ HTTP/1.1" 200 3749
 INFO 2025-08-05 12:21:10,325 basehttp 18776 20408 "POST /todo/ HTTP/1.1" 302 0
 INFO 2025-08-05 12:21:10,336 basehttp 18776 20408 "GET /todo/ HTTP/1.1" 200 4591
 INFO 2025-08-05 12:21:12,225 basehttp 18776 20408 "GET /home/ HTTP/1.1" 200 4911
+INFO 2025-08-05 12:26:06,527 autoreload 18776 13216 C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\app\views.py changed, reloading.
+INFO 2025-08-05 12:26:09,464 autoreload 8896 7144 Watching for file changes with StatReloader
+INFO 2025-08-05 12:26:40,002 basehttp 8896 20664 "GET / HTTP/1.1" 200 1803
+WARNING 2025-08-05 12:26:40,516 log 8896 20664 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 12:26:40,518 basehttp 8896 20664 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5261
+INFO 2025-08-05 12:26:47,085 basehttp 8896 27436 "POST / HTTP/1.1" 302 0
+ERROR 2025-08-05 12:26:47,441 log 8896 27436 Internal Server Error: /home/
+Traceback (most recent call last):
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\app\views.py", line 27, in home
+    overdue_tasks = todos.filter(due_date__lt=datetime.date.today(), status__in=['Pending'])
+                                              ^^^^^^^^
+NameError: name 'datetime' is not defined. Did you forget to import 'datetime'?
+ERROR 2025-08-05 12:26:47,449 basehttp 8896 27436 "GET /home/ HTTP/1.1" 500 76063
+INFO 2025-08-05 12:27:15,713 autoreload 8896 7144 C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\app\views.py changed, reloading.
+INFO 2025-08-05 12:27:16,961 autoreload 31952 28596 Watching for file changes with StatReloader
+INFO 2025-08-05 12:30:44,208 autoreload 31952 28596 C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\base\models.py changed, reloading.
+INFO 2025-08-05 12:30:44,848 autoreload 28876 22016 Watching for file changes with StatReloader
+INFO 2025-08-05 12:31:14,180 autoreload 28876 22016 C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\app\views.py changed, reloading.
+INFO 2025-08-05 12:31:16,192 autoreload 20360 21740 Watching for file changes with StatReloader
+INFO 2025-08-05 12:36:43,205 basehttp 20360 30628 "GET / HTTP/1.1" 200 1803
+WARNING 2025-08-05 12:36:43,290 log 20360 20956 Not Found: /favicon.ico
+WARNING 2025-08-05 12:36:43,291 basehttp 20360 20956 "GET /favicon.ico HTTP/1.1" 404 5117
+INFO 2025-08-05 12:37:33,686 basehttp 20360 30236 "GET / HTTP/1.1" 200 1803
+WARNING 2025-08-05 12:37:33,843 log 20360 15864 Not Found: /favicon.ico
+WARNING 2025-08-05 12:37:33,844 basehttp 20360 15864 "GET /favicon.ico HTTP/1.1" 404 5117
+INFO 2025-08-05 12:38:14,122 autoreload 20360 21740 C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\Project\urls.py changed, reloading.
+INFO 2025-08-05 12:38:14,874 autoreload 22820 14300 Watching for file changes with StatReloader
+INFO 2025-08-05 12:38:43,274 basehttp 22820 9552 "GET / HTTP/1.1" 200 1803
+WARNING 2025-08-05 12:38:43,452 log 22820 26816 Not Found: /favicon.ico
+WARNING 2025-08-05 12:38:43,453 basehttp 22820 26816 "GET /favicon.ico HTTP/1.1" 404 5026
+INFO 2025-08-05 12:39:33,573 basehttp 22820 1716 "GET / HTTP/1.1" 200 1803
+WARNING 2025-08-05 12:39:33,898 log 22820 11020 Not Found: /favicon.ico
+WARNING 2025-08-05 12:39:33,899 basehttp 22820 11020 "GET /favicon.ico HTTP/1.1" 404 5026
+INFO 2025-08-05 12:41:25,165 basehttp 22820 15276 "GET / HTTP/1.1" 200 1803
+WARNING 2025-08-05 12:41:25,261 log 22820 30080 Not Found: /favicon.ico
+WARNING 2025-08-05 12:41:25,262 basehttp 22820 30080 "GET /favicon.ico HTTP/1.1" 404 5026
+INFO 2025-08-05 07:11:26,906 autoreload 24843 138032283232064 Watching for file changes with StatReloader
+INFO 2025-08-05 12:42:48,246 basehttp 22820 6308 "GET / HTTP/1.1" 200 1803
+WARNING 2025-08-05 12:42:48,694 log 22820 6308 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 12:42:48,695 basehttp 22820 6308 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5170
+INFO 2025-08-05 12:42:56,711 basehttp 22820 6308 "POST / HTTP/1.1" 302 0
+INFO 2025-08-05 12:42:56,739 basehttp 22820 6308 "GET /home/ HTTP/1.1" 200 5810
+INFO 2025-08-05 12:43:02,287 basehttp 22820 4908 "GET /todo/ HTTP/1.1" 200 8979
+INFO 2025-08-05 12:43:17,899 basehttp 22820 19768 "POST /todo/ HTTP/1.1" 302 0
+INFO 2025-08-05 12:43:17,912 basehttp 22820 19768 "GET /todo/ HTTP/1.1" 200 9950
+INFO 2025-08-05 12:43:22,525 basehttp 22820 19768 "GET /home/ HTTP/1.1" 200 5932
+INFO 2025-08-05 12:43:37,583 basehttp 22820 9828 "GET /todo/ HTTP/1.1" 200 9950
+INFO 2025-08-05 12:43:46,347 basehttp 22820 9828 "POST /todo/ HTTP/1.1" 302 0
+INFO 2025-08-05 12:43:46,362 basehttp 22820 9828 "GET /todo/ HTTP/1.1" 200 10922
+INFO 2025-08-05 12:43:50,677 basehttp 22820 16712 "GET /home/ HTTP/1.1" 200 6056
+INFO 2025-08-05 12:44:04,888 basehttp 22820 1380 "GET /todo/ HTTP/1.1" 200 10922
+INFO 2025-08-05 12:44:11,478 basehttp 22820 22984 "POST /done/48/ HTTP/1.1" 302 0
+INFO 2025-08-05 12:44:11,483 basehttp 22820 22984 "GET /?next=/done/48/ HTTP/1.1" 200 1803
+INFO 2025-08-05 12:44:19,026 basehttp 22820 5096 "POST /done/41/ HTTP/1.1" 302 0
+INFO 2025-08-05 12:44:19,032 basehttp 22820 5096 "GET /?next=/done/41/ HTTP/1.1" 200 1803
+INFO 2025-08-05 12:46:06,479 basehttp 22820 9236 "GET / HTTP/1.1" 200 1803
+WARNING 2025-08-05 12:46:06,783 log 22820 9236 Not Found: /favicon.ico
+WARNING 2025-08-05 12:46:06,785 basehttp 22820 9236 "GET /favicon.ico HTTP/1.1" 404 5026
+INFO 2025-08-05 07:17:32,963 autoreload 24843 138032283232064 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/views.py changed, reloading.
+INFO 2025-08-05 12:47:33,409 autoreload 22820 14300 C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\app\views.py changed, reloading.
+INFO 2025-08-05 12:47:35,515 autoreload 14196 17312 Watching for file changes with StatReloader
+INFO 2025-08-05 07:17:35,749 autoreload 25673 134632159139648 Watching for file changes with StatReloader
+INFO 2025-08-05 12:49:32,892 autoreload 14196 17312 C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\app\views.py changed, reloading.
+INFO 2025-08-05 07:19:33,607 autoreload 25673 134632159139648 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/views.py changed, reloading.
+INFO 2025-08-05 12:49:34,448 autoreload 19944 23504 Watching for file changes with StatReloader
+INFO 2025-08-05 07:19:35,041 autoreload 25942 139949858518848 Watching for file changes with StatReloader
+INFO 2025-08-05 07:20:54,063 autoreload 26125 136955298694976 Watching for file changes with StatReloader
+INFO 2025-08-05 12:50:56,679 basehttp 19944 20540 "GET / HTTP/1.1" 200 1803
+WARNING 2025-08-05 12:50:57,050 log 19944 20540 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 12:50:57,051 basehttp 19944 20540 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5170
+INFO 2025-08-05 12:51:05,427 basehttp 19944 24828 "POST / HTTP/1.1" 302 0
+INFO 2025-08-05 12:51:05,463 basehttp 19944 24828 "GET /home/ HTTP/1.1" 200 6056
+INFO 2025-08-05 12:51:10,464 basehttp 19944 24828 "GET /todo/ HTTP/1.1" 200 10922
+INFO 2025-08-05 12:51:14,745 basehttp 19944 30180 "GET /home/ HTTP/1.1" 200 6056
+INFO 2025-08-05 12:55:52,141 autoreload 19944 23504 C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\app\views.py changed, reloading.
+INFO 2025-08-05 07:25:52,634 autoreload 26125 136955298694976 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/views.py changed, reloading.
+INFO 2025-08-05 12:55:53,988 autoreload 23180 32424 Watching for file changes with StatReloader
+INFO 2025-08-05 07:25:54,433 autoreload 26796 131309384095552 Watching for file changes with StatReloader
+WARNING 2025-08-05 12:57:22,318 log 23180 1184 Not Found: /login/
+WARNING 2025-08-05 12:57:22,320 basehttp 23180 1184 "GET /login/ HTTP/1.1" 404 5011
+WARNING 2025-08-05 12:57:22,517 log 23180 17152 Not Found: /favicon.ico
+WARNING 2025-08-05 12:57:22,518 basehttp 23180 17152 "GET /favicon.ico HTTP/1.1" 404 5026
+INFO 2025-08-05 12:57:58,860 basehttp 23180 27604 "GET / HTTP/1.1" 200 1803
+WARNING 2025-08-05 12:57:59,181 log 23180 27604 Not Found: /favicon.ico
+WARNING 2025-08-05 12:57:59,183 basehttp 23180 27604 "GET /favicon.ico HTTP/1.1" 404 5026
+INFO 2025-08-05 13:00:07,698 basehttp 23180 25996 "GET / HTTP/1.1" 200 1803
+WARNING 2025-08-05 13:00:07,917 log 23180 19768 Not Found: /favicon.ico
+WARNING 2025-08-05 13:00:07,918 basehttp 23180 19768 "GET /favicon.ico HTTP/1.1" 404 5026
+INFO 2025-08-05 07:32:23,974 autoreload 27671 136781683451712 Watching for file changes with StatReloader
+INFO 2025-08-05 13:02:26,221 basehttp 23180 32368 "GET / HTTP/1.1" 200 1803
+INFO 2025-08-05 13:02:34,161 basehttp 23180 31996 "POST / HTTP/1.1" 302 0
+INFO 2025-08-05 13:02:34,202 basehttp 23180 31996 "GET /home/ HTTP/1.1" 200 6025
+INFO 2025-08-05 13:02:39,312 basehttp 23180 28768 "GET /todo/ HTTP/1.1" 200 10922
+INFO 2025-08-05 13:02:50,575 basehttp 23180 1780 "POST /todo/ HTTP/1.1" 302 0
+INFO 2025-08-05 13:02:50,596 basehttp 23180 1780 "GET /todo/ HTTP/1.1" 200 11898
+INFO 2025-08-05 13:02:52,973 basehttp 23180 1780 "POST /delete/38/ HTTP/1.1" 302 0
+INFO 2025-08-05 13:02:52,997 basehttp 23180 1780 "GET /todo/ HTTP/1.1" 200 11247
+INFO 2025-08-05 13:02:54,523 basehttp 23180 1780 "POST /delete/39/ HTTP/1.1" 302 0
+INFO 2025-08-05 13:02:54,545 basehttp 23180 1780 "GET /todo/ HTTP/1.1" 200 10599
+INFO 2025-08-05 13:02:56,019 basehttp 23180 1780 "POST /done/41/ HTTP/1.1" 302 0
+INFO 2025-08-05 13:02:56,042 basehttp 23180 1780 "GET /todo/ HTTP/1.1" 200 10272
+INFO 2025-08-05 13:03:05,241 basehttp 23180 9436 "GET /home/ HTTP/1.1" 200 5899
+INFO 2025-08-05 13:03:23,474 basehttp 23180 15284 "GET /home/ HTTP/1.1" 200 5899
+INFO 2025-08-05 13:03:25,173 basehttp 23180 15284 "GET /todo/ HTTP/1.1" 200 10272
+INFO 2025-08-05 08:22:08,073 autoreload 28737 124073578301248 Watching for file changes with StatReloader
+ERROR 2025-08-05 13:52:14,092 log 23180 4236 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\app\views.py", line 159, in login_view
+    return render(request, 'login.html', {'error': error})
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'password_reset_request' not found. 'password_reset_request' is not a valid view function or pattern name.
+ERROR 2025-08-05 13:52:14,118 basehttp 23180 4236 "GET / HTTP/1.1" 500 122223
+WARNING 2025-08-05 13:52:21,233 log 23180 4236 Not Found: /login
+WARNING 2025-08-05 13:52:21,235 basehttp 23180 4236 "GET /login HTTP/1.1" 404 5008
+INFO 2025-08-05 08:22:35,515 autoreload 28737 124073578301248 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/urls.py changed, reloading.
+INFO 2025-08-05 13:52:36,340 autoreload 23180 32424 C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\app\urls.py changed, reloading.
+INFO 2025-08-05 08:22:39,809 autoreload 28808 129551408940864 Watching for file changes with StatReloader
+INFO 2025-08-05 13:52:41,773 autoreload 32760 2652 Watching for file changes with StatReloader
+INFO 2025-08-05 13:53:03,029 autoreload 32760 2652 C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\app\views.py changed, reloading.
+INFO 2025-08-05 08:23:03,928 autoreload 28808 129551408940864 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/views.py changed, reloading.
+INFO 2025-08-05 13:53:07,445 autoreload 23668 23916 Watching for file changes with StatReloader
+INFO 2025-08-05 08:23:08,075 autoreload 28877 123217863542592 Watching for file changes with StatReloader
+INFO 2025-08-05 13:54:30,583 basehttp 23668 21028 "GET /todo/ HTTP/1.1" 302 0
+INFO 2025-08-05 13:54:30,893 basehttp 23668 29488 "GET /?next=/todo/ HTTP/1.1" 200 1873
+WARNING 2025-08-05 13:54:31,642 log 23668 29488 Not Found: /favicon.ico
+WARNING 2025-08-05 13:54:31,645 basehttp 23668 29488 "GET /favicon.ico HTTP/1.1" 404 5621
+INFO 2025-08-05 08:25:58,944 autoreload 29261 126920372483904 Watching for file changes with StatReloader
+INFO 2025-08-05 13:56:02,129 basehttp 23668 20404 "GET / HTTP/1.1" 200 1873
+INFO 2025-08-05 13:56:03,811 basehttp 23668 20404 "GET /password-reset/ HTTP/1.1" 200 1636
+INFO 2025-08-05 13:56:14,051 basehttp 23668 31456 "POST /password-reset/ HTTP/1.1" 302 0
+INFO 2025-08-05 13:56:14,077 basehttp 23668 31456 "GET / HTTP/1.1" 200 2021
+INFO 2025-08-05 13:56:48,913 basehttp 23668 12496 "GET / HTTP/1.1" 200 1873
+WARNING 2025-08-05 13:56:49,421 log 23668 12496 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 13:56:49,424 basehttp 23668 12496 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5765
+INFO 2025-08-05 13:56:51,894 basehttp 23668 12496 "GET /password-reset/ HTTP/1.1" 200 1636
+ERROR 2025-08-05 13:57:04,115 log 23668 12496 Internal Server Error: /password-reset/
+Traceback (most recent call last):
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\app\views.py", line 174, in password_reset_request
+    user = User.objects.get(email=identifier)
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\query.py", line 636, in get
+    raise self.model.MultipleObjectsReturned(
+    ...<5 lines>...
+    )
+django.contrib.auth.models.User.MultipleObjectsReturned: get() returned more than one User -- it returned 14!
+ERROR 2025-08-05 13:57:04,126 basehttp 23668 12496 "POST /password-reset/ HTTP/1.1" 500 81233
+INFO 2025-08-05 13:57:06,947 basehttp 23668 12496 "GET /password-reset/ HTTP/1.1" 200 1636
+INFO 2025-08-05 13:57:14,364 basehttp 23668 12496 "POST /password-reset/ HTTP/1.1" 302 0
+INFO 2025-08-05 13:57:14,386 basehttp 23668 12496 "GET / HTTP/1.1" 200 2021
+INFO 2025-08-05 13:58:37,828 autoreload 23668 23916 C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\app\views.py changed, reloading.
+INFO 2025-08-05 08:28:38,449 autoreload 29261 126920372483904 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/views.py changed, reloading.
+INFO 2025-08-05 13:58:45,545 autoreload 31792 30424 Watching for file changes with StatReloader
+INFO 2025-08-05 08:28:47,897 autoreload 29619 124675752011584 Watching for file changes with StatReloader
+INFO 2025-08-05 08:29:34,240 autoreload 29739 132589288757056 Watching for file changes with StatReloader
+INFO 2025-08-05 13:59:50,797 basehttp 31792 29128 "GET / HTTP/1.1" 200 1873
+WARNING 2025-08-05 13:59:51,109 log 31792 29128 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 13:59:51,110 basehttp 31792 29128 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5765
+INFO 2025-08-05 13:59:52,929 basehttp 31792 29128 "GET /password-reset/ HTTP/1.1" 200 1636
+INFO 2025-08-05 14:00:01,318 basehttp 31792 29128 "POST /password-reset/ HTTP/1.1" 302 0
+INFO 2025-08-05 14:00:01,332 basehttp 31792 29128 "GET / HTTP/1.1" 200 2021
+INFO 2025-08-05 14:00:12,922 basehttp 31792 29128 "GET /password-reset/ HTTP/1.1" 200 1636
+ERROR 2025-08-05 14:00:26,158 log 31792 15628 Internal Server Error: /password-reset/
+Traceback (most recent call last):
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\app\views.py", line 178, in password_reset_request
+    user = User.objects.get(email=identifier)
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\query.py", line 636, in get
+    raise self.model.MultipleObjectsReturned(
+    ...<5 lines>...
+    )
+django.contrib.auth.models.User.MultipleObjectsReturned: get() returned more than one User -- it returned 14!
+ERROR 2025-08-05 14:00:26,163 basehttp 31792 15628 "POST /password-reset/ HTTP/1.1" 500 81233
+WARNING 2025-08-05 14:00:35,880 log 31792 15628 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 14:00:35,880 basehttp 31792 15628 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5765
+INFO 2025-08-05 14:01:44,374 autoreload 31792 30424 C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\app\views.py changed, reloading.
+INFO 2025-08-05 08:31:45,161 autoreload 29739 132589288757056 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/views.py changed, reloading.
+INFO 2025-08-05 14:01:45,509 autoreload 29312 15380 Watching for file changes with StatReloader
+INFO 2025-08-05 08:31:45,982 autoreload 30037 128041350346560 Watching for file changes with StatReloader
+INFO 2025-08-05 14:01:54,830 basehttp 29312 24200 "GET / HTTP/1.1" 200 1873
+INFO 2025-08-05 14:01:56,666 basehttp 29312 24200 "GET /password-reset/ HTTP/1.1" 200 1636
+INFO 2025-08-05 14:02:20,316 basehttp 29312 24200 "GET /home/ HTTP/1.1" 302 0
+INFO 2025-08-05 14:02:20,329 basehttp 29312 24200 "GET /?next=/home/ HTTP/1.1" 200 1873
+INFO 2025-08-05 14:02:24,789 basehttp 29312 24200 "GET /?next=/done/41/ HTTP/1.1" 200 1873
+INFO 2025-08-05 14:03:03,904 basehttp 29312 2768 "GET /todo/ HTTP/1.1" 302 0
+INFO 2025-08-05 14:03:03,914 basehttp 29312 2768 "GET /?next=/todo/ HTTP/1.1" 200 1873
+WARNING 2025-08-05 14:03:04,147 log 29312 2768 Not Found: /favicon.ico
+WARNING 2025-08-05 14:03:04,148 basehttp 29312 2768 "GET /favicon.ico HTTP/1.1" 404 5621
+INFO 2025-08-05 08:34:31,643 autoreload 30420 140206578435904 Watching for file changes with StatReloader
+INFO 2025-08-05 14:04:33,671 basehttp 29312 24200 "GET / HTTP/1.1" 200 1873
+WARNING 2025-08-05 14:04:33,994 log 29312 24200 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 14:04:33,995 basehttp 29312 24200 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5765
+INFO 2025-08-05 14:04:35,139 basehttp 29312 24200 "GET /password-reset/ HTTP/1.1" 200 1636
+INFO 2025-08-05 14:04:43,769 basehttp 29312 24200 "POST /password-reset/ HTTP/1.1" 302 0
+INFO 2025-08-05 14:04:43,783 basehttp 29312 24200 "GET / HTTP/1.1" 200 2021
+INFO 2025-08-05 14:04:54,585 basehttp 29312 24200 "GET /password-reset/ HTTP/1.1" 200 1636
+INFO 2025-08-05 14:05:53,931 basehttp 29312 24200 "POST /password-reset/ HTTP/1.1" 302 0
+INFO 2025-08-05 14:05:53,946 basehttp 29312 24200 "GET / HTTP/1.1" 200 2021
+INFO 2025-08-05 14:06:06,504 basehttp 29312 24200 "GET /password-reset-confirm/MjY/cu2f5q-da53952200278d9923ece22c3424cc0e/ HTTP/1.1" 200 1789
+WARNING 2025-08-05 14:06:06,794 log 29312 24200 Not Found: /password-reset-confirm/MjY/src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 14:06:06,794 basehttp 29312 24200 "GET /password-reset-confirm/MjY/src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5846
+INFO 2025-08-05 14:06:18,075 basehttp 29312 24200 "POST /password-reset-confirm/MjY/cu2f5q-da53952200278d9923ece22c3424cc0e/ HTTP/1.1" 302 0
+INFO 2025-08-05 14:06:18,089 basehttp 29312 24200 "GET / HTTP/1.1" 200 2027
+INFO 2025-08-05 14:06:30,690 basehttp 29312 24200 "POST / HTTP/1.1" 200 1961
+INFO 2025-08-05 14:06:50,127 basehttp 29312 24200 "POST / HTTP/1.1" 200 1961
+INFO 2025-08-05 14:07:02,364 basehttp 29312 24200 "POST / HTTP/1.1" 302 0
+INFO 2025-08-05 14:07:02,385 basehttp 29312 24200 "GET /home/ HTTP/1.1" 200 5105
+INFO 2025-08-05 14:07:54,165 autoreload 29312 15380 C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\app\views.py changed, reloading.
+INFO 2025-08-05 08:37:54,253 autoreload 30420 140206578435904 /mnt/c/Users/boyar/OneDrive/Desktop/Smart-To-Do-List1/Smart-To-Do-List/Project/app/views.py changed, reloading.
+INFO 2025-08-05 08:37:55,022 autoreload 30869 127235772733248 Watching for file changes with StatReloader
+INFO 2025-08-05 14:07:59,423 autoreload 15640 23256 Watching for file changes with StatReloader
+INFO 2025-08-05 08:39:32,441 autoreload 31096 139917234292544 Watching for file changes with StatReloader
+INFO 2025-08-05 14:09:34,877 basehttp 15640 30528 "GET / HTTP/1.1" 200 1873
+WARNING 2025-08-05 14:09:35,201 log 15640 30528 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 14:09:35,202 basehttp 15640 30528 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5765
+INFO 2025-08-05 14:09:36,574 basehttp 15640 30528 "GET /password-reset/ HTTP/1.1" 200 1636
+INFO 2025-08-05 14:09:45,187 basehttp 15640 30528 "POST /password-reset/ HTTP/1.1" 200 1768
+INFO 2025-08-05 14:09:53,254 basehttp 15640 30528 "POST /password-reset/ HTTP/1.1" 200 1768
+INFO 2025-08-05 14:09:57,771 basehttp 15640 30528 "POST /password-reset/ HTTP/1.1" 200 1768
+INFO 2025-08-05 14:10:01,821 basehttp 15640 30528 "GET / HTTP/1.1" 200 1873
+INFO 2025-08-05 14:10:03,108 basehttp 15640 30528 "GET /register/ HTTP/1.1" 200 2363
+ERROR 2025-08-05 14:10:33,419 log 15640 30528 Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: table base_profile has no column named email_verified
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\app\views.py", line 292, in register_view
+    Profile.objects.create(user=user)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: table base_profile has no column named email_verified
+ERROR 2025-08-05 14:10:33,434 basehttp 15640 30528 "POST /register/ HTTP/1.1" 500 164356
+WARNING 2025-08-05 14:10:45,880 log 15640 30528 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 14:10:45,880 basehttp 15640 30528 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5765
+INFO 2025-08-05 14:13:21,770 basehttp 15640 11900 "GET / HTTP/1.1" 200 1873
+WARNING 2025-08-05 14:13:22,213 log 15640 11900 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 14:13:22,215 basehttp 15640 11900 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5765
+INFO 2025-08-05 08:43:23,918 autoreload 31611 134015498536768 Watching for file changes with StatReloader
+INFO 2025-08-05 14:13:25,688 basehttp 15640 11900 "GET / HTTP/1.1" 200 1873
+WARNING 2025-08-05 14:13:26,153 log 15640 11900 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 14:13:26,155 basehttp 15640 11900 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5765
+INFO 2025-08-05 14:13:28,371 basehttp 15640 11900 "GET /register/ HTTP/1.1" 200 2363
+INFO 2025-08-05 14:13:49,394 basehttp 15640 20320 "POST /register/ HTTP/1.1" 200 2420
+ERROR 2025-08-05 14:14:25,596 log 15640 32476 Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: table base_profile has no column named email_verified
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\boyar\OneDrive\Desktop\Smart-To-Do-List1\Smart-To-Do-List\Project\app\views.py", line 292, in register_view
+    Profile.objects.create(user=user)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\boyar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: table base_profile has no column named email_verified
+ERROR 2025-08-05 14:14:25,605 basehttp 15640 32476 "POST /register/ HTTP/1.1" 500 164368
+WARNING 2025-08-05 14:14:31,198 log 15640 19176 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 14:14:31,199 basehttp 15640 19176 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5765
+INFO 2025-08-05 08:48:46,747 autoreload 32331 126193766287168 Watching for file changes with StatReloader
+INFO 2025-08-05 14:18:50,410 basehttp 15640 14044 "GET / HTTP/1.1" 200 1873
+WARNING 2025-08-05 14:18:51,265 log 15640 14044 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 14:18:51,267 basehttp 15640 14044 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5765
+INFO 2025-08-05 14:18:53,404 basehttp 15640 14044 "GET /register/ HTTP/1.1" 200 2363
+INFO 2025-08-05 14:19:14,603 basehttp 15640 24768 "POST /register/ HTTP/1.1" 200 2420
+INFO 2025-08-05 14:19:43,436 basehttp 15640 30932 "POST /register/ HTTP/1.1" 200 2456
+INFO 2025-08-05 14:19:51,380 basehttp 15640 30932 "GET /activate/Mjk/cu2fsr-5b443ab7f7ab0981af11461f053e89f6/ HTTP/1.1" 302 0
+INFO 2025-08-05 14:19:51,397 basehttp 15640 30932 "GET / HTTP/1.1" 200 2022
+WARNING 2025-08-05 14:19:51,727 log 15640 30932 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 14:19:51,728 basehttp 15640 30932 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5765
+INFO 2025-08-05 14:20:01,615 basehttp 15640 30932 "POST / HTTP/1.1" 200 1961
+INFO 2025-08-05 14:20:05,388 basehttp 15640 30932 "GET /password-reset/ HTTP/1.1" 200 1636
+INFO 2025-08-05 14:20:14,830 basehttp 15640 24628 "POST /password-reset/ HTTP/1.1" 302 0
+INFO 2025-08-05 14:20:14,845 basehttp 15640 24628 "GET / HTTP/1.1" 200 2021
+INFO 2025-08-05 14:21:52,298 basehttp 15640 26756 "POST /register/ HTTP/1.1" 200 2456
+INFO 2025-08-05 08:57:14,241 autoreload 33441 123507224987456 Watching for file changes with StatReloader
+INFO 2025-08-05 14:27:15,870 basehttp 15640 15776 "GET / HTTP/1.1" 200 1873
+WARNING 2025-08-05 14:27:16,211 log 15640 15776 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 14:27:16,213 basehttp 15640 15776 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5765
+INFO 2025-08-05 14:27:23,793 basehttp 15640 4652 "POST / HTTP/1.1" 302 0
+INFO 2025-08-05 14:27:23,818 basehttp 15640 4652 "GET /home/ HTTP/1.1" 200 5105
+INFO 2025-08-05 14:27:31,566 basehttp 15640 30800 "GET /todo/ HTTP/1.1" 200 9852
+INFO 2025-08-05 14:27:34,936 basehttp 15640 30800 "GET /home/ HTTP/1.1" 200 5105
+INFO 2025-08-05 14:27:42,697 basehttp 15640 17236 "GET /todo/ HTTP/1.1" 200 9852
+INFO 2025-08-05 14:27:45,772 basehttp 15640 17236 "POST /done/46/ HTTP/1.1" 302 0
+INFO 2025-08-05 14:27:45,782 basehttp 15640 17236 "GET /todo/ HTTP/1.1" 200 9525
+INFO 2025-08-05 14:27:46,972 basehttp 15640 17236 "POST /delete/41/ HTTP/1.1" 302 0
+INFO 2025-08-05 14:27:46,984 basehttp 15640 17236 "GET /todo/ HTTP/1.1" 200 8881
+INFO 2025-08-05 14:27:49,336 basehttp 15640 29756 "GET /home/ HTTP/1.1" 200 5018
+INFO 2025-08-05 14:28:00,097 basehttp 15640 21056 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-08-05 14:28:00,103 basehttp 15640 21056 "GET / HTTP/1.1" 200 1873
+INFO 2025-08-05 14:28:03,890 basehttp 15640 21056 "GET /register/ HTTP/1.1" 200 2363
+INFO 2025-08-05 14:28:34,990 basehttp 15640 31936 "POST /register/ HTTP/1.1" 200 2456
+INFO 2025-08-05 14:28:40,107 basehttp 15640 11336 "GET /activate/MzE/cu2g7j-5cf2ebb360f91a0804c7daf84f3c62ca/ HTTP/1.1" 302 0
+INFO 2025-08-05 14:28:40,123 basehttp 15640 11336 "GET / HTTP/1.1" 200 2022
+WARNING 2025-08-05 14:28:40,456 log 15640 11336 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 14:28:40,457 basehttp 15640 11336 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5765
+INFO 2025-08-05 14:28:47,423 basehttp 15640 5376 "POST / HTTP/1.1" 302 0
+INFO 2025-08-05 14:28:47,438 basehttp 15640 5376 "GET /home/ HTTP/1.1" 200 4558
+INFO 2025-08-05 14:28:52,382 basehttp 15640 10544 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-08-05 14:28:52,387 basehttp 15640 10544 "GET / HTTP/1.1" 200 1873
+WARNING 2025-08-05 14:28:54,968 log 15640 10544 Not Found: /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 14:28:54,969 basehttp 15640 10544 "GET /src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5765
+INFO 2025-08-05 14:28:55,354 basehttp 15640 10544 "GET /password-reset/ HTTP/1.1" 200 1636
+INFO 2025-08-05 14:29:02,361 basehttp 15640 10544 "POST /password-reset/ HTTP/1.1" 302 0
+INFO 2025-08-05 14:29:02,375 basehttp 15640 10544 "GET / HTTP/1.1" 200 2021
+INFO 2025-08-05 14:29:10,925 basehttp 15640 10544 "GET /password-reset-confirm/MzE/cu2g8b-0738ba744e057be10cc165c9c2ddda7b/ HTTP/1.1" 200 1789
+WARNING 2025-08-05 14:29:11,417 log 15640 10544 Not Found: /password-reset-confirm/MzE/src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+WARNING 2025-08-05 14:29:11,417 basehttp 15640 10544 "GET /password-reset-confirm/MzE/src/assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf HTTP/1.1" 404 5846
+INFO 2025-08-05 14:29:21,077 basehttp 15640 28696 "POST /password-reset-confirm/MzE/cu2g8b-0738ba744e057be10cc165c9c2ddda7b/ HTTP/1.1" 302 0
+INFO 2025-08-05 14:29:21,093 basehttp 15640 28696 "GET / HTTP/1.1" 200 2027
+INFO 2025-08-05 14:29:28,720 basehttp 15640 22112 "POST / HTTP/1.1" 302 0
+INFO 2025-08-05 14:29:28,737 basehttp 15640 22112 "GET /home/ HTTP/1.1" 200 4558
+INFO 2025-08-05 14:29:41,751 basehttp 15640 31848 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-08-05 14:29:41,755 basehttp 15640 31848 "GET / HTTP/1.1" 200 1873

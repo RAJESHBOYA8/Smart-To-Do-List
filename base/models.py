@@ -1,32 +1,19 @@
 from django.db import models
 from django.contrib.auth.models import User
-import uuid
-
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    email_token = models.UUIDField(default=uuid.uuid4)
-    is_email_verified = models.BooleanField(default=False)
+    email_verified = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.user.username}'s Profile"
+        return self.user.username
 
-
-class Todo(models.Model):
-    PRIORITY_CHOICES = [
-        ('High', 'High'),
-        ('Medium', 'Medium'),
-        ('Low', 'Low'),
-    ]
-
-    STATUS_CHOICES = [
-        ('Pending', 'Pending'),
-        ('Completed', 'Completed'),
-    ]
-
-    task = models.CharField(max_length=200)
-    priority = models.CharField(max_length=10, choices=PRIORITY_CHOICES)
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='Pending')
+class Note(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.task
+        return self.title

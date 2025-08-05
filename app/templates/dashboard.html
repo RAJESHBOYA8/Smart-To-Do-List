@@ -75,6 +75,11 @@
             <a href="{% url 'logout' %}" class="logout">Logout</a>
         </div>
         <div class="row mb-4 g-3">
+            <div class="col-md-12">
+                <!-- Calendar input removed as per request -->
+            </div>
+        </div>
+        <div class="row mb-4 g-3">
             <div class="col-md summary-card summary-total">
                 <h5>Total Tasks</h5>
                 <h2>{{ total }}</h2>
@@ -87,14 +92,18 @@
                 <h5>Pending</h5>
                 <h2>{{ pending }}</h2>
             </div>
+            <div class="col-md summary-card summary-overdue">
+                <h5>Overdue</h5>
+                <h2>{{ overdue }}</h2>
+            </div>
         </div>
         <div class="row g-3">
             <div class="col-md-4 task-section pending-tasks">
                 <h4>Pending Tasks</h4>
-                <div class="task-list">
+                <div class="task-list" id="pendingTasksList">
                     {% if pending_tasks %}
                         {% for task in pending_tasks %}
-                            <div class="task-item">{{ task.task }}</div>
+                            <div class="task-item {% if task.due_date < today %}overdue{% endif %}">{{ task.task }}</div>
                         {% endfor %}
                     {% else %}
                         <div>No pending tasks.</div>
@@ -107,7 +116,7 @@
             </div>
             <div class="col-md-4 task-section completed-tasks">
                 <h4>Completed Tasks</h4>
-                <div class="task-list">
+                <div class="task-list" id="completedTasksList">
                     {% if completed_tasks %}
                         {% for task in completed_tasks %}
                             <div class="task-item">{{ task.task }}</div>
@@ -119,8 +128,6 @@
             </div>
         </div>
         <div class="row g-3">
-            <!-- Calendar feature removed as per user request -->
-        </div>
     </div>
 
     <script>
@@ -147,24 +154,7 @@
             }
         });
 
-        // Calendar task filtering
-        const tasks = {
-            {% for task in all_tasks %}
-            "{{ task.due_date|date:'Y-m-d' }}": "{{ task.task }}",
-            {% endfor %}
-        };
-
-        const calendar = document.getElementById('taskCalendar');
-        const tasksByDate = document.getElementById('tasksByDate');
-
-        calendar.addEventListener('change', function() {
-            const selectedDate = this.value;
-            if (tasks[selectedDate]) {
-                tasksByDate.innerHTML = `<strong>Tasks for ${selectedDate}:</strong><br>${tasks[selectedDate]}`;
-            } else {
-                tasksByDate.innerHTML = 'No tasks for this date.';
-            }
-        });
+        // Calendar task filtering removed as per request
     </script>
 </body>
 </html>

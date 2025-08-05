@@ -1,32 +1,37 @@
+import datetime
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
-from django.utils.http import urlsafe_base64_encode
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes
 from django.urls import reverse
-from django.utils.http import urlsafe_base64_decode
 from django.contrib.auth.tokens import default_token_generator
-from django.contrib.auth import get_user_model
-from base.models import Profile
-from base.emails import account_activation_email
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import get_user_model, authenticate, login, logout
 from django.contrib import messages
-from django.contrib.auth import logout
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404, redirect
-from .models import Todo
 from django.views.decorators.http import require_http_methods
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+from .models import Todo
 from .forms import TodoForm
+from base.models import Profile, Note
+from base.emails import account_activation_email
+import json
 
 @login_required
 def home(request):
+    selected_date = request.GET.get('date')
     todos = Todo.objects.filter(user=request.user)
+    if selected_date:
+        todos = todos.filter(due_date=selected_date)
     total = todos.count()
     completed = todos.filter(status='Completed').count()
     pending = todos.filter(status='Pending').count()
-    overdue = todos.filter(status='Overdue').count()
+    overdue_tasks = todos.filter(due_date__lt=datetime.date.today(), status__in=['Pending'])
+    overdue = overdue_tasks.count()
     completed_tasks = todos.filter(status='Completed')
     pending_tasks = todos.filter(status='Pending')
+    notes = Note.objects.filter(user=request.user).order_by('-updated_at')[:5]
     return render(request, 'dashboard.html', {
         'total': total,
         'completed': completed,
@@ -34,8 +39,44 @@ def home(request):
         'overdue': overdue,
         'completed_tasks': completed_tasks,
         'pending_tasks': pending_tasks,
+        'overdue_tasks': overdue_tasks,
         'all_tasks': todos,
+        'notes': notes,
+        'selected_date': selected_date,
+        'today': datetime.date.today(),
     })
+@login_required
+def notes_view(request):
+    notes = Note.objects.filter(user=request.user).order_by('-updated_at')
+    return render(request, 'notes.html', {'notes': notes})
+
+@login_required
+@require_http_methods(["GET", "POST"])
+def add_note(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        Note.objects.create(user=request.user, title=title, content=content)
+        return redirect('notes')
+    return render(request, 'add_note.html')
+
+@login_required
+@require_http_methods(["GET", "POST"])
+def edit_note(request, note_id):
+    note = get_object_or_404(Note, id=note_id, user=request.user)
+    if request.method == 'POST':
+        note.title = request.POST.get('title')
+        note.content = request.POST.get('content')
+        note.save()
+        return redirect('notes')
+    return render(request, 'edit_note.html', {'note': note})
+
+@login_required
+@require_http_methods(["POST"])
+def delete_note(request, note_id):
+    note = get_object_or_404(Note, id=note_id, user=request.user)
+    note.delete()
+    return redirect('notes')
 
 
 
@@ -103,6 +144,7 @@ def logout_view(request):
     return redirect('login')
 
 def login_view(request):
+    error = None
     if request.method == 'POST':
         username = request.POST.get("username")
         password = request.POST.get("password")
@@ -111,11 +153,87 @@ def login_view(request):
         if user is not None:
             login(request, user)
             return redirect('home')
-            # Changed to dashboard
         else:
-            messages.error(request, 'Invalid username or password.')
+            error = 'Invalid username or password.'
+
+    return render(request, 'login.html', {'error': error})
+
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_str
+from django.core.mail import send_mail
+from django.contrib.auth.models import User
+from django.contrib import messages
+from django.urls import reverse
+import logging
+
+logger = logging.getLogger(__name__)
+
+def password_reset_request(request):
+    if request.method == 'POST':
+        identifier = request.POST.get('identifier')
+        users = []
+        if '@' in identifier:
+            users = User.objects.filter(email=identifier)
+        else:
+            try:
+                user = User.objects.get(username=identifier)
+                users = [user]
+            except User.DoesNotExist:
+                users = []
+
+        if users:
+            for user in users:
+                uid = urlsafe_base64_encode(force_bytes(user.pk))
+                token = default_token_generator.make_token(user)
+                reset_link = request.build_absolute_uri(
+                    reverse('password_reset_confirm', kwargs={'uidb64': uid, 'token': token})
+                )
+                try:
+                    send_mail(
+                        'Password Reset Request',
+                        f'Hi {user.username}, click the link below to reset your password:\n{reset_link}',
+                        'noreply@yourdomain.com',
+                        [user.email],
+                        fail_silently=False,
+                    )
+                except Exception as e:
+                    logger.error(f"Error sending password reset email to {user.email}: {e}")
+                    messages.error(request, f'Error sending password reset email to {user.email}. Please try again later.')
+                    return redirect('password_reset_request')
+            messages.success(request, 'Password reset email sent. Please check your inbox.')
             return redirect('login')
-    return render(request, 'login.html')
+        else:
+            messages.error(request, 'User not found with that username or email.')
+
+    return render(request, 'password_reset_request.html')
+
+def password_reset_confirm(request, uidb64, token):
+    UserModel = User
+    try:
+        uid = force_str(urlsafe_base64_decode(uidb64))
+        user = UserModel.objects.get(pk=uid)
+    except (TypeError, ValueError, OverflowError, UserModel.DoesNotExist):
+        user = None
+
+    if user is not None and default_token_generator.check_token(user, token):
+        if request.method == 'POST':
+            new_password = request.POST.get('new_password')
+            confirm_password = request.POST.get('confirm_password')
+            logger.debug(f"Password reset attempt: new_password={new_password}, confirm_password={confirm_password}")
+            if new_password == confirm_password:
+                user.set_password(new_password)
+                user.save()
+                logger.debug("Password reset successful and saved to DB.")
+                messages.success(request, 'Password has been reset successfully. You can now log in.')
+                return redirect('login')
+            else:
+                logger.debug("Password reset failed: passwords do not match.")
+                messages.error(request, 'Passwords do not match.')
+        return render(request, 'password_reset_form.html', {'validlink': True})
+    else:
+        messages.error(request, 'The password reset link is invalid or has expired.')
+        return render(request, 'password_reset_form.html', {'validlink': False})
 
 
 
