@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks for {{ selected_date|date:"F d, Y" }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f7f7f7; }
+        table { width: 100%; border-collapse: collapse; background-color: white; }
+        th, td { border: 1px solid #ccc; padding: 12px; text-align: left; }
+        th { background-color: #eee; }
+        /* ... etc ... */
+    </style>
+</head>
+<body>
+    {% include "navbar.html" %}
+
+    <h1>Tasks for {{ selected_date|date:"F d, Y" }}</h1>
+
+    {% if tasks %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for todo in tasks %}
+                    <tr>
+                        <td>{{ todo.task }}</td>
+                        <td>{{ todo.priority }}</td>
+                        <td>{{ todo.status }}</td>
+                        <td>
+                            <a href="{% url 'edit_task' todo.id %}">Edit</a>
+                            </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p style="text-align: center;">No tasks scheduled for this day.</p>
+    {% endif %}
+
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="{% url 'home' %}">Back to Dashboard</a>
+    </div>
+</body>
+</html>

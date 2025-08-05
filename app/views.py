@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.utils.http import urlsafe_base64_decode
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.auth import get_user_model
-from base import emails
+from base.models import Profile
 from base.emails import account_activation_email
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
@@ -164,6 +164,9 @@ def register_view(request):
                 last_name=last_name,
                 is_active=False
             )
+            
+            # Create profile for the user
+            Profile.objects.create(user=user)
 
             # Send verification email
             uid = urlsafe_base64_encode(force_bytes(user.pk))
@@ -181,24 +184,9 @@ def register_view(request):
             )
 
             message = 'Registration successful. A verification email has been sent.'
-            if not User.objects.filter(username=username).exists():
-                user = User.objects.create_user(
-                    username=username,
-                    email=email,
-                    password=password,
-                    first_name=first_name,
-                    last_name=last_name,
-                    is_active=True
-                )
-                profile = Profile.objects.get(user=user)
-                account_activation_email(email=user.email, email_token=str(profile.email_token))
-                message = 'Registration successful. A verification email has been sent.'
 
     return render(request, 'register.html', {'message': message})
 
-def logout_view(request):
-    logout(request)
-    return redirect('login')
 @login_required
 def mark_done(request, task_id):
     task = get_object_or_404(Todo, id=task_id, user=request.user)

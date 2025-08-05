@@ -18,5 +18,3 @@ class TaskForm(forms.ModelForm):
     class Meta:
         model = Todo
         fields = ['task', 'priority']
-
-
