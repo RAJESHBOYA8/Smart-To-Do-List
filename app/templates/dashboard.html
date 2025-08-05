@@ -1,136 +1,170 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Dashboard</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-     <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f0f2f5;
-      margin: 0;
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 36px;
-      margin-bottom: 30px;
-      color: #1f2937;
-    }
-
-    .stats-container {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin-bottom: 50px;
-    }
-
-    .stat-box {
-      flex: 1 1 200px;
-      padding: 25px;
-      border-radius: 12px;
-      color: #1f2937;
-      text-align: center;
-      font-weight: 600;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      transition: transform 0.2s ease;
-    }
-
-    .stat-box:hover {
-      transform: translateY(-5px);
-    }
-
-    .total {
-      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-    }
-
-    .completed {
-      background: linear-gradient(135deg, #ccfbf1, #99f6e4);
-    }
-
-    .pending {
-      background: linear-gradient(135deg, #fef9c3, #fde68a);
-    }
-
-    .overdue {
-      background: linear-gradient(135deg, #fee2e2, #fecaca);
-    }
-
-    .stat-box span {
-      font-size: 30px;
-      display: block;
-      margin-top: 10px;
-      font-weight: 700;
-    }
-
-    .chart-container {
-      width: 100%;
-      max-width: 600px;
-      margin: 0 auto;
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
-    }
-
-    .chart-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #111827;
-    }
-  </style>
-  </style>
+    <meta charset="UTF-8">
+    <title>Dashboard - Smart To-Do List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background: #f0f4f8;
+            padding: 20px;
+        }
+        .summary-card {
+            border-radius: 12px;
+            padding: 20px;
+            color: #000;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .summary-total {
+            background-color: #a8c0ff;
+        }
+        .summary-completed {
+            background-color: #a8fff0;
+        }
+        .summary-pending {
+            background-color: #fff3a8;
+        }
+        .task-section {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        .task-section h4 {
+            color: #f0ad4e;
+            margin-bottom: 15px;
+        }
+        .completed-tasks h4 {
+            color: #28a745;
+        }
+        .nav-links {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        .nav-links a {
+            margin-left: 15px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .nav-links a.logout {
+            color: red;
+            font-weight: 700;
+        }
+        .task-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .task-list .task-item {
+            padding: 8px 12px;
+            border-bottom: 1px solid #eee;
+        }
+        .task-list .task-item:last-child {
+            border-bottom: none;
+        }
+    </style>
 </head>
 <body>
-{% include 'navbar.html' %}
+    <div class="container">
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'todo' %}">Add Tasks</a>
+            <a href="{% url 'logout' %}" class="logout">Logout</a>
+        </div>
+        <div class="row mb-4 g-3">
+            <div class="col-md summary-card summary-total">
+                <h5>Total Tasks</h5>
+                <h2>{{ total }}</h2>
+            </div>
+            <div class="col-md summary-card summary-completed">
+                <h5>Completed</h5>
+                <h2>{{ completed }}</h2>
+            </div>
+            <div class="col-md summary-card summary-pending">
+                <h5>Pending</h5>
+                <h2>{{ pending }}</h2>
+            </div>
+        </div>
+        <div class="row g-3">
+            <div class="col-md-4 task-section pending-tasks">
+                <h4>Pending Tasks</h4>
+                <div class="task-list">
+                    {% if pending_tasks %}
+                        {% for task in pending_tasks %}
+                            <div class="task-item">{{ task.task }}</div>
+                        {% endfor %}
+                    {% else %}
+                        <div>No pending tasks.</div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-4 task-section">
+                <h4 class="text-center">Task Status</h4>
+                <canvas id="taskStatusChart"></canvas>
+            </div>
+            <div class="col-md-4 task-section completed-tasks">
+                <h4>Completed Tasks</h4>
+                <div class="task-list">
+                    {% if completed_tasks %}
+                        {% for task in completed_tasks %}
+                            <div class="task-item">{{ task.task }}</div>
+                        {% endfor %}
+                    {% else %}
+                        <div>No completed tasks.</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="row g-3">
+            <!-- Calendar feature removed as per user request -->
+        </div>
+    </div>
 
-
-
-  <h1>SMART TO-DO LIST</h1>
-
-  <div class="stats-container">
-    <div class="stat-box total">Total Tasks<br><span>{{ total }}</span></div>
-    <div class="stat-box completed">Completed<br><span>{{ completed }}</span></div>
-    <div class="stat-box pending">Pending<br><span>{{ pending }}</span></div>
-  </div>
-
-  <div class="chart-container">
-    <h2>Task Status</h2>
-    <canvas id="taskChart"></canvas>
-  </div>
-
-  <script>
-    const ctx = document.getElementById('taskChart').getContext('2d');
-    new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: ['Completed', 'Pending'],
-        datasets: [{
-          label: 'Tasks',
-          data: [{{ completed }}, {{ pending }}],
-          backgroundColor: ['#10b981', '#f59e0b'],
-          borderWidth: 1,
-        }]
-      },
-      options: {
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: {
-              color: '#374151',
-              font: {
-                size: 14
-              }
+    <script>
+        const ctx = document.getElementById('taskStatusChart').getContext('2d');
+        const taskStatusChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Completed', 'Pending'],
+                datasets: [{
+                    label: 'Task Status',
+                    data: [{{ completed }}, {{ pending }}],
+                    backgroundColor: ['#28a745', '#f0ad4e'],
+                    hoverOffset: 30
+                }]
+            },
+            options: {
+                responsive: true,
+                cutout: '70%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    }
+                }
             }
-          }
-        }
-      }
-    });
-  </script>
+        });
 
+        // Calendar task filtering
+        const tasks = {
+            {% for task in all_tasks %}
+            "{{ task.due_date|date:'Y-m-d' }}": "{{ task.task }}",
+            {% endfor %}
+        };
+
+        const calendar = document.getElementById('taskCalendar');
+        const tasksByDate = document.getElementById('tasksByDate');
+
+        calendar.addEventListener('change', function() {
+            const selectedDate = this.value;
+            if (tasks[selectedDate]) {
+                tasksByDate.innerHTML = `<strong>Tasks for ${selectedDate}:</strong><br>${tasks[selectedDate]}`;
+            } else {
+                tasksByDate.innerHTML = 'No tasks for this date.';
+            }
+        });
+    </script>
 </body>
 </html>

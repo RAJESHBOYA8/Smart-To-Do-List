@@ -25,11 +25,16 @@ def home(request):
     completed = todos.filter(status='Completed').count()
     pending = todos.filter(status='Pending').count()
     overdue = todos.filter(status='Overdue').count()
+    completed_tasks = todos.filter(status='Completed')
+    pending_tasks = todos.filter(status='Pending')
     return render(request, 'dashboard.html', {
         'total': total,
         'completed': completed,
         'pending': pending,
         'overdue': overdue,
+        'completed_tasks': completed_tasks,
+        'pending_tasks': pending_tasks,
+        'all_tasks': todos,
     })
 
 
