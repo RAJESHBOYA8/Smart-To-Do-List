@@ -2,62 +2,610 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Edit Task</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f7f7f7;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task - Smart To-Do List</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    form {
-      max-width: 400px;
-      margin: auto;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
 
-    h2 {
-      text-align: center;
-    }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
 
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-    }
+        .edit-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            box-shadow: 
+                0 32px 64px rgba(0, 0, 0, 0.12),
+                0 16px 32px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            overflow: hidden;
+            width: 100%;
+            max-width: 520px;
+            animation: slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            z-index: 1;
+        }
 
-    button {
-      background-color: #3498db;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-40px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
 
-    a {
-      display: block;
-      text-align: center;
-      margin-top: 15px;
-      color: #3498db;
-    }
-  </style>
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            transform: translateX(-100%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .header h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header p {
+            opacity: 0.95;
+            font-size: 16px;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-content {
+            padding: 48px 40px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(248, 250, 252, 0.8) 100%);
+        }
+
+        .form-group {
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            transition: color 0.3s ease;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 18px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            color: #1e293b;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #667eea;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 
+                0 0 0 4px rgba(102, 126, 234, 0.12),
+                0 8px 25px rgba(102, 126, 234, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .form-control:hover:not(:focus) {
+            border-color: #cbd5e1;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-control.error {
+            border-color: #ef4444;
+            background: rgba(254, 242, 242, 0.8);
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.12);
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        .select-wrapper::after {
+            content: '\f107';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #667eea;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .select-wrapper:hover::after {
+            color: #5a67d8;
+        }
+
+        select.form-control {
+            appearance: none;
+            cursor: pointer;
+            padding-right: 50px;
+        }
+
+        .priority-badge, .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .priority-high {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            color: #dc2626;
+            border: 1px solid #fca5a5;
+        }
+
+        .priority-medium {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            color: #d97706;
+            border: 1px solid #fcd34d;
+        }
+
+        .priority-low {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            color: #16a34a;
+            border: 1px solid #86efac;
+        }
+
+        .status-pending {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            color: #d97706;
+            border: 1px solid #fcd34d;
+        }
+
+        .status-completed {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            color: #16a34a;
+            border: 1px solid #86efac;
+        }
+
+        /* Enhanced select options styling */
+        select.form-control option {
+            padding: 12px 16px;
+            font-weight: 500;
+            background: white;
+            color: #1e293b;
+        }
+
+        select.form-control option:hover {
+            background: #f1f5f9;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 18px 32px;
+            border: none;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: white;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(241, 245, 249, 0.8);
+            color: #64748b;
+            border: 2px solid #e2e8f0;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(226, 232, 240, 0.9);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(100, 116, 139, 0.15);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(-1px);
+        }
+
+        .task-icon {
+            margin-right: 10px;
+            color: #667eea;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .success-message {
+            background-color: #d1fae5;
+            color: #065f46;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .error-alert {
+            background-color: #fee2e2;
+            color: #991b1b;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .form-content {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="edit-container">
+        <div class="header">
+            <h2><i class="fas fa-edit task-icon"></i>Edit Task</h2>
+            <p>Update your task details below</p>
+        </div>
 
-  <h2>Edit Task</h2>
+        <div class="form-content">
+            <div class="success-message" id="successMessage">
+                <i class="fas fa-check-circle"></i> Task updated successfully!
+            </div>
+            
+            <div class="error-alert" id="errorMessage">
+                <i class="fas fa-exclamation-triangle"></i> <span id="errorText"></span>
+            </div>
 
-  <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Changes</button>
-  </form>
+            <form method="POST" id="editTaskForm" novalidate>
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="{{ form.task.id_for_label }}">
+                        <i class="fas fa-tasks task-icon"></i>Task Description
+                    </label>
+                    <input type="text" 
+                           name="{{ form.task.name }}" 
+                           id="{{ form.task.id_for_label }}"
+                           class="form-control"
+                           value="{{ form.task.value|default:todo.task }}"
+                           placeholder="Enter your task description"
+                           required>
+                    <div class="error-message" id="taskError">Please enter a task description</div>
+                </div>
 
-  <a href="{% url 'home' %}">Back to To-Do List</a>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="{{ form.priority.id_for_label }}">
+                            <i class="fas fa-flag task-icon"></i>Priority
+                        </label>
+                        <div class="select-wrapper">
+                            <select name="{{ form.priority.name }}" 
+                                    id="{{ form.priority.id_for_label }}"
+                                    class="form-control" 
+                                    required>
+                                <option value="">Select Priority</option>
+                                <option value="High" {% if todo.priority == 'High' %}selected{% endif %}>High</option>
+                                <option value="Medium" {% if todo.priority == 'Medium' %}selected{% endif %}>Medium</option>
+                                <option value="Low" {% if todo.priority == 'Low' %}selected{% endif %}>Low</option>
+                            </select>
+                        </div>
+                        <div class="error-message" id="priorityError">Please select a priority</div>
+                    </div>
 
+                    <div class="form-group">
+                        <label for="{{ form.status.id_for_label }}">
+                            <i class="fas fa-check-circle task-icon"></i>Status
+                        </label>
+                        <div class="select-wrapper">
+                            <select name="{{ form.status.name }}" 
+                                    id="{{ form.status.id_for_label }}"
+                                    class="form-control" 
+                                    required>
+                                <option value="">Select Status</option>
+                                <option value="Pending" {% if todo.status == 'Pending' %}selected{% endif %}>Pending</option>
+                                <option value="Completed" {% if todo.status == 'Completed' %}selected{% endif %}>Completed</option>
+                            </select>
+                        </div>
+                        <div class="error-message" id="statusError">Please select a status</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="due_date">
+                        <i class="fas fa-calendar task-icon"></i>Due Date
+                    </label>
+                    <input type="date" 
+                           name="due_date" 
+                           id="due_date"
+                           class="form-control"
+                           value="{{ todo.due_date|date:'Y-m-d'|default:'' }}"
+                           min="{{ today|date:'Y-m-d' }}">
+                </div>
+
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        <i class="fas fa-save"></i> Update Task
+                    </button>
+                    <a href="{% url 'home' %}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Cancel
+                    </a>
+                </div>
+            </form>
+
+            <div class="loading" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p>Updating task...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Form validation and AJAX submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('editTaskForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
+
+            // Real-time validation
+            const taskInput = document.getElementById('{{ form.task.id_for_label }}');
+            const prioritySelect = document.getElementById('{{ form.priority.id_for_label }}');
+            const statusSelect = document.getElementById('{{ form.status.id_for_label }}');
+
+            function validateField(field, errorId) {
+                const errorElement = document.getElementById(errorId);
+                if (!field.value.trim()) {
+                    field.classList.add('error');
+                    errorElement.style.display = 'block';
+                    return false;
+                } else {
+                    field.classList.remove('error');
+                    errorElement.style.display = 'none';
+                    return true;
+                }
+            }
+
+            // Add event listeners for real-time validation
+            taskInput.addEventListener('blur', () => validateField(taskInput, 'taskError'));
+            prioritySelect.addEventListener('change', () => validateField(prioritySelect, 'priorityError'));
+            statusSelect.addEventListener('change', () => validateField(statusSelect, 'statusError'));
+
+            // Form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Validate all fields
+                const isTaskValid = validateField(taskInput, 'taskError');
+                const isPriorityValid = validateField(prioritySelect, 'priorityError');
+                const isStatusValid = validateField(statusSelect, 'statusError');
+
+                if (isTaskValid && isPriorityValid && isStatusValid) {
+                    // Show loading state
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Updating...';
+                    loadingSpinner.style.display = 'block';
+
+                    // Submit form via AJAX
+                    const formData = new FormData(form);
+                    
+                    fetch(window.location.href, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                        }
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            return response.text();
+                        }
+                        throw new Error('Network response was not ok');
+                    })
+                    .then(data => {
+                        // Show success message
+                        successMessage.style.display = 'block';
+                        errorMessage.style.display = 'none';
+                        
+                        // Redirect after 2 seconds
+                        setTimeout(() => {
+                            window.location.href = "{% url 'home' %}";
+                        }, 2000);
+                    })
+                    .catch(error => {
+                        // Show error message
+                        errorText.textContent = 'An error occurred while updating the task. Please try again.';
+                        errorMessage.style.display = 'block';
+                        successMessage.style.display = 'none';
+                        
+                        // Reset button
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<i class="fas fa-save"></i> Update Task';
+                        loadingSpinner.style.display = 'none';
+                    });
+                }
+            });
+
+            // Auto-hide messages after 5 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+            }, 5000);
+        });
+
+        // Character counter for task description
+        const taskInput = document.getElementById('{{ form.task.id_for_label }}');
+        taskInput.addEventListener('input', function() {
+            const maxLength = 200;
+            const currentLength = this.value.length;
+            if (currentLength > maxLength) {
+                this.value = this.value.substring(0, maxLength);
+            }
+        });
+
+        // Set minimum date to today
+        const dueDateInput = document.getElementById('due_date');
+        if (dueDateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dueDateInput.setAttribute('min', today);
+        }
+    </script>
 </body>
 </html>

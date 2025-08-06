@@ -96,15 +96,22 @@ def edit_todo(request, todo_id):
     return render(request, "edit_todo.html", {"todo": todo})
 
 def edit_task(request, todo_id):
-    todo = get_object_or_404(Todo, id=todo_id)
+    todo = get_object_or_404(Todo, id=todo_id, user=request.user)
+    
     if request.method == "POST":
         form = TodoForm(request.POST, instance=todo)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Task updated successfully!')
             return redirect('home')
     else:
         form = TodoForm(instance=todo)
-    return render(request, 'edit_task.html', {'form': form, 'todo': todo})
+    
+    return render(request, 'edit_task.html', {
+        'form': form,
+        'todo': todo,
+        'title': 'Edit Task'
+    })
 
 
 

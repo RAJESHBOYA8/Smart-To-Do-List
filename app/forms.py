@@ -9,9 +9,23 @@ class RegisterForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
 
 class TodoForm(forms.ModelForm):
+    STATUS_CHOICES = [
+        ('Pending', 'Pending'),
+        ('Completed', 'Completed'),
+    ]
+    
+    status = forms.ChoiceField(
+        choices=STATUS_CHOICES,
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+    
     class Meta:
         model = Todo
         fields = ['task', 'priority', 'status']
+        widgets = {
+            'task': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter task description'}),
+            'priority': forms.Select(attrs={'class': 'form-control'}),
+        }
 
 
 class TaskForm(forms.ModelForm):
